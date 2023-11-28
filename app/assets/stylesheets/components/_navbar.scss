@@ -1,12 +1,30 @@
-.navbar-lewagon {
+// app/assets/stylesheets/components/_navbar.scss
+.navbar {
+  display: flex;
   justify-content: space-between;
-  background: white;
-}
+  align-items: center;
+  background: transparent; // or any color you want
+  padding: 1rem 2rem;
 
-.navbar-lewagon .navbar-collapse {
-  flex-grow: 0;
-}
+  .navbar-brand {
+    color: #fff; // or any color from your design
+    font-size: 2rem; // adjust as needed
+    font-weight: bold;
+    // add any additional styles
+  }
 
-.navbar-lewagon .navbar-brand img {
-  width: 40px;
+  .navbar-links {
+    .nav-link {
+      color: #fff; // or any color from your design
+      margin-left: 20px;
+      text-decoration: none;
+      padding: 0.5rem 1rem; // adjust as needed
+
+      &.nav-link-signup {
+        background-color: #f00; // or any color from your design
+        border-radius: 5px;
+        // add any additional styles
+      }
+    }
+  }
 }

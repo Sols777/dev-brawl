@@ -1,1 +1,24 @@
-<h1>Pages#home</h1>
+<!-- app/views/pages/home.html.erb -->
+<header class="main-header">
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+      <%= link_to 'DevBrawl', root_path, class: 'navbar-brand' %>
+      <div class="navbar-links">
+        <%= link_to 'Login', new_user_session_path, class: 'btn btn-login' %>
+        <%= link_to 'Sign up free!', new_user_registration_path, class: 'btn btn-signup' %>
+      </div>
+    </nav>
+  </header>
+  
+  <main role="main">
+    <div class="hero-section">
+      <h1>Battle for Code Supremacy</h1>
+      <p>Experience the thrill of coding competition like never before.</p>
+      <%= link_to 'Sign up free!', new_user_registration_path, class: 'btn btn-primary' %>
+    </div>
+  </main>
+  
+  <footer class="main-footer">
+    <p>© 2023 DevBrawl, Inc.</p>
+  </footer>
+  
