@@ -1,5 +1,7 @@
 class SubmissionsController < ApplicationController
   def new
+    @language = Language.find(params[:language_id])
+    @challenge = Challenge.where(language_id: @language.id).sample
     @submission = Submission.new
   end
 

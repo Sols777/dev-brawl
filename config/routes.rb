@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root to: "pages#home"
   get "mydashboard", to: "pages#mydashboard"
   get "profile", to: "pages#profile"
-  resources :challenges do
+  resources :languages, only: [] do
     resources :submissions, only: %i[new create]
   end
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.

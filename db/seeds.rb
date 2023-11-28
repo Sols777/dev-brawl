@@ -12,7 +12,7 @@ Challenge.destroy_all
 User.destroy_all
 # Create users
 user = User.create!(email: "test@example.com", password: "password",
-                    username: "Test", achievements: "test", language_id: language.id)
+                    username: "Test", achievements: "test")
 # Create Languages
 ruby = Language.create!(name: "Ruby")
 javascript = Language.create!(name: "JavaScript")
@@ -23,4 +23,4 @@ html_css = Language.create!(name: "HTML&CSS")
 # Create challenges
 exercise1 = Challenge.create!(name: "Exercise one test", expected_result: "1", expected_score: 1 , expected_time: 3600,
                               category: "frontend", description: "Javascript exercise", difficulty: "beginer",
-                              content: "Do a javascript function where the result isalways 1", language_id: language.id)
+                              content: "Do a javascript function where the result isalways 1", language_id: javascript.id)
