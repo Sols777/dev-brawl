@@ -1,9 +1,4 @@
 class SubmissionsController < ApplicationController
-
-  def show
-    @venue = Venue.find(params[:id])
-  end
-
   def new
     @submission = Submission.new
   end
@@ -18,15 +13,9 @@ class SubmissionsController < ApplicationController
     end
   end
 
-  def score
-    score = @submission.end_time - @submission.start_time
-    @submission.actual_points + 1 if score = something
-  end
-
   private
 
   def submission_params
-    params.require(:submission).permit(:start_time, :end_time, :description,
-                                       :result, :actual_points, :user_id, :challenge_id)
+    params.require(:submission).permit(:start_time, :end_time, :result, :actual_points, :user_id, :challenge_id)
   end
 end
