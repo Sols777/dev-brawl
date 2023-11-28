@@ -5,14 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <style type="text/css" media="screen">
+    #editor {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+    }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.31.2/ace.js" integrity="sha512-mkot3HRJhKBg0jgaOGO10Ve1Y1V1YRiFx4l2itBAZUjXYfDKgxbPUhSjp3UFq8oQmHDL1yAXG3nMFRMhPgFlrA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
   </head>
 
-  <body><%= render "shared/navbar" %>
-<%= render "shared/flashes" %>
-
+  <body>
+    <%= render "shared/navbar" %>
+    <%= render "shared/flashes" %>
     <%= yield %>
   </body>
 </html>
