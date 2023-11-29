@@ -4,6 +4,9 @@ class PagesController < ApplicationController
   def home
   end
 
+  def test
+  end
+
   def mydashboard
     @leaderboard = Leaderboard.sample
     @languages = Language.all
@@ -12,5 +15,4 @@ class PagesController < ApplicationController
   def profile
     @user = current_user
   end
-
 end
