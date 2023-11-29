@@ -22,5 +22,5 @@ java = Language.create!(name: "Java")
 html_css = Language.create!(name: "HTML&CSS")
 # Create challenges
 exercise1 = Challenge.create!(name: "Exercise one test", expected_result: "1", expected_score: 1 , expected_time: 3600,
-                              category: "frontend", description: "Javascript exercise", difficulty: "beginer",
-                              content: "Do a javascript function where the result isalways 1", language_id: javascript.id)
+                              category: "frontend", description: "Javascript exercise", difficulty: "begginer",
+                              content: "Do a javascript function where the result is always 1", language_id: javascript.id)
