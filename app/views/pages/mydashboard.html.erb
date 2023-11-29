@@ -1,1 +1,12 @@
-<h1> THIS IS A MY DASHBOARD</h1>
+<div class="">
+  <h1> My Dashboard</h1>
+  <div class="container-fluid m-5">
+    <div>This leaderboard</div>
+  </div>
+ <div class="container-fluid m-5"></div>
+  <div class="row">
+    <% @languages.each do |language| %>
+      <%= render "shared/card_language", language: language %>
+    <% end %>
+  </div>
+</div>

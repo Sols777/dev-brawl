@@ -11,16 +11,19 @@ Language.destroy_all
 Challenge.destroy_all
 User.destroy_all
 # Create users
-user = User.create!(email: "test@example.com", password: "password",
-                    username: "Test", achievements: "test")
+user = User.create!(email: "user@text.com", password: "123123",
+                    username: "Javascriptlord",
+                    first_name: "Digo", last_name: "Nunes")
 # Create Languages
-ruby = Language.create!(name: "Ruby")
-javascript = Language.create!(name: "JavaScript")
-python = Language.create!(name: "Python")
-csharp = Language.create!(name: "C#sharp")
-java = Language.create!(name: "Java")
-html_css = Language.create!(name: "HTML&CSS")
+ruby = Language.create!(name: "Ruby", image: "app/assets/images/ruby-logo.png")
+javascript = Language.create!(name: "JavaScript", image: "app/assets/images/js-logo.png")
+python = Language.create!(name: "Python", image: "app/assets/images/python-logo.png")
+csharp = Language.create!(name: "C#sharp", image: "app/assets/images/chsharp-logo.png")
+java = Language.create!(name: "Java", image: "app/assets/images/java-logo.png")
+html_css = Language.create!(name: "HTML&CSS", image: "app/assets/images/htmlcss-logo.png")
 # Create challenges
 exercise1 = Challenge.create!(name: "Exercise one test", expected_result: "1", expected_score: 1 , expected_time: 3600,
-                              category: "frontend", description: "Javascript exercise", difficulty: "begginer",
+                              category: "frontend", description: "Javascript exercise", difficulty: "begginner",
                               content: "Do a javascript function where the result is always 1", language_id: javascript.id)
+# leaderboard
+leaderboard = Leaderboard.create!(ranking: 10)

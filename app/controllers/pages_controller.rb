@@ -8,7 +8,7 @@ class PagesController < ApplicationController
   end
 
   def mydashboard
-    @leaderboard = Leaderboard.sample
+    # @leaderboard = Leaderboard.sample
     @languages = Language.all
   end
 
