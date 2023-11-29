@@ -22,8 +22,30 @@ csharp = Language.create!(name: "C#sharp", image: "app/assets/images/chsharp-log
 java = Language.create!(name: "Java", image: "app/assets/images/java-logo.png")
 html_css = Language.create!(name: "HTML&CSS", image: "app/assets/images/htmlcss-logo.png")
 # Create challenges
-exercise1 = Challenge.create!(name: "Exercise one test", expected_result: "1", expected_score: 1 , expected_time: 3600,
+# ruby
+exercise1 = Challenge.create!(name: "ruby exercise", expected_result: "1", expected_score: 3, expected_time: 3600,
+                              category: "frontend", description: "ruby exercise", difficulty: "begginner",
+                              content: "Do a ruby function where the result is always 1", language_id: ruby.id)
+# javascript
+exercise2 = Challenge.create!(name: "Javascript exercise", expected_result: "2", expected_score: 3, expected_time: 3600,
                               category: "frontend", description: "Javascript exercise", difficulty: "begginner",
-                              content: "Do a javascript function where the result is always 1", language_id: javascript.id)
+                              content: "Do a javascript function where the result is always 2", language_id: javascript.id)
+# python
+exercise3 = Challenge.create!(name: "pyhton exercise", expected_result: "3", expected_score: 3 , expected_time: 3600,
+                              category: "frontend", description: "pyhton exercise", difficulty: "begginner",
+                              content: "Do a pyhton function where the result is always 3", language_id: python.id)
+# csharp
+exercise3 = Challenge.create!(name: "csharp exercise", expected_result: "4", expected_score: 3 , expected_time: 3600,
+                              category: "frontend", description: "csharp exercise", difficulty: "begginner",
+                              content: "Do a csharp function where the result is always 4", language_id: csharp.id)
+# java
+exercise3 = Challenge.create!(name: "java exercise", expected_result: "5", expected_score: 3 , expected_time: 3600,
+                              category: "frontend", description: "java exercise", difficulty: "begginner",
+                              content: "Do a java function where the result is always 5", language_id: java.id)
+# jhtmlcss
+exercise3 = Challenge.create!(name: "html css exercise", expected_result: "6", expected_score: 3 , expected_time: 3600,
+                              category: "frontend", description: "html css exercise", difficulty: "begginner",
+                              content: "Do a html css function where the result is always 6", language_id: html_css.id)
+
 # leaderboard
 leaderboard = Leaderboard.create!(ranking: 10)

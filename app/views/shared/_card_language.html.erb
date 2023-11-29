@@ -1,7 +1,13 @@
-<div class="col">
-  <%= link_to mydashboard_path(), class: "button" do %>
-    <div class=""style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= image_tag language.image %>')">
-        <p><%= language.name %></p>
+<div class="col accordion-item">
+  <h2 class="accordion-header">
+    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse<%= index%>" aria-expanded="true" aria-controls="collapseOne">
+      <%= language.name %>
+    </button>
+  </h2>
+  <div id="collapse<%= index%>" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+    <div class="accordion-body">
+    <%= link_to (language.challenges.sample.name if language.challenges.size > 0) , "/languages/#{language.id}/submissions/new" %>
+      <%# <%= language.challenges.sample.name if language.challenges.size > 0 %>
     </div>
-  <% end %>
+  </div>
 </div>

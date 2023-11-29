@@ -10,6 +10,9 @@ class PagesController < ApplicationController
   def mydashboard
     # @leaderboard = Leaderboard.sample
     @languages = Language.all
+    # @language = Language.find_by(id: params[:id])
+    # @challenges = Challenge.where(language_id: @language.id).all
+
   end
 
   def profile
