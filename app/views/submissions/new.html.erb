@@ -5,10 +5,11 @@
       <div class="card-body">
         <h5 class="card-title"><%= @challenge.name %></h5>
         <p class="card-text">Description: <%= @challenge.description %></p>
-        <p class="card-text">Category: <%= @challenge.category %></p>
-        <p class="card-text">Difficulty: <%= @challenge.difficulty %></p>
         <p class="card-text">Points: <%= @challenge.expected_score %></p>
-        <p class="card-text">Time: <%= @challenge.expected_time / 60%> seconds</p>
+        <p class="card-text">Max Time: <%= @challenge.expected_time / 60%> seconds</p>
+        <span class="badge text-bg-info"><%= @challenge.category %></span>
+        <span class="badge text-bg-info"><%= @challenge.language.name %></span>
+        <span class="badge text-bg-info"><%= @challenge.difficulty %></span>
       </div>
     </div>
      <div class="card" style="width: 18rem;">
