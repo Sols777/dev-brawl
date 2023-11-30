@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   get "test", to: "pages#test"
   get "mydashboard", to: "pages#mydashboard"
   get "profile", to: "pages#profile"
+  get 'expected_result/:id', to: 'submissions#expected_result', as: 'expected_result'
+
   resources :languages, only: [] do
     resources :submissions, only: %i[new create]
   end
