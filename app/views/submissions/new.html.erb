@@ -18,25 +18,24 @@
         <div  class="alert alert-success d-flex align-items-center" role="alert" data-target="timer.alert">good luck!</div>
         <button class="btn btn-primary" data-action="click->timer#stopTimer" data-target="timer.stopButton">End trial</button>
       </div>
-      </div>
-    </div>
+     </div>
   </div>
   <div data-controller="create-submission">
     <div data-controller="expected-results" data-expected-results-challenge-id-value="<%= @challenge.id %>">
       <div class="container-ide">
         <div id="editor" >function foo() {
-          var x = "Turn this into something that displays the integer 1";
-           return x;
-        }
-        foo()
+            var x = "Turn this into something that displays the integer 1";
+            return x;
+          }
+          foo()
       </div>
-    <div data-create-submission-target="output"></div>
+      <div data-create-submission-target="output"></div>
       <button class="btn btn-primary" data-action="click->expected-results#loadExpectedResult" >Rake</button>
       <button class="btn btn-primary" data-action="click->create-submission#runCode" >Submit</button>
-    <br>
-    <div data-expected-results-target="expectedOutput">
-    <br>
-    </div>
+      <br>
+      <div data-expected-results-target="expectedOutput">
+      <br>
+      </div>
       <i data-expected-results-target="tick" class="fa-solid fa-check hidden" style="color: #00ff04;"></i>
       <i data-expected-results-target="cross" class="fa-solid fa-xmark hidden" style="color: #fb0404;"></i>
     </div>
