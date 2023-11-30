@@ -14,3 +14,11 @@ $headers-font: "Nunito", "Helvetica", "sans-serif";
 //        font-url('FontFile.ttf') format('truetype')
 // }
 // $my-font: "Font Name";
+
+@font-face {
+  font-family: 'Blanka';
+  src: url('../assets/stylesheets/config/Blanka.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+

@@ -1,24 +1,24 @@
-<!-- app/views/pages/home.html.erb -->
-<header class="main-header">
-    <!-- Navigation Bar -->
-    <nav class="navbar">
-      <%= link_to 'DevBrawl', root_path, class: 'navbar-brand' %>
-      <div class="navbar-links">
-        <%= link_to 'Login', new_user_session_path, class: 'btn btn-login' %>
-        <%= link_to 'Sign up free!', new_user_registration_path, class: 'btn btn-signup' %>
-      </div>
-    </nav>
-  </header>
-  
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet">
+</head>
+<body>
   <main role="main">
-    <div class="hero-section">
-      <h1>Battle for Code Supremacy</h1>
-      <p>Experience the thrill of coding competition like never before.</p>
-      <%= link_to 'Sign up free!', new_user_registration_path, class: 'btn btn-primary' %>
-    </div>
+      <div class="hero-section">
+        <div class="hero-content">
+          <h2>Battle for Code Supremacy</h2>
+          <p>Experience the thrill of coding competition like never before.</p>
+          <%= link_to 'Sign up free!', new_user_registration_path, class: 'btn btn-primary' %>
+        </div>
+      </div>
   </main>
   
   <footer class="main-footer">
-    <p>© 2023 DevBrawl, Inc.</p>
-  </footer>
-  
+    <canvas data-controller="matrix" id="matrixCanvas"></canvas>
+    <p>© 2023 Dev&lt;Brawl&gt;, Inc.</p>
+  </footer>  
+</body>
+</html>

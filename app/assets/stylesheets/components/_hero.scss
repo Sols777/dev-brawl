@@ -1,28 +1,56 @@
 .hero-section {
-    background: url('background.png') no-repeat center center;
-    background-size: cover;
-    text-align: center;
-    padding: 100px 20px;
-  
-    h1 {
-      color: white;
-      font-size: 3rem;
-      margin-bottom: 20px;
-    }
-  
-    p {
-      color: white;
-      margin-bottom: 30px;
-    }
-  
-    .btn {
-      // Button styles
-      &-primary {
-        background-color: green($color: #000000);
-        &:hover {
-          background-color: darken(red, 10%);
-        }
-      }
-    }
+  background: url('background.png') no-repeat center center;
+  background-size: cover;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 8);
+    z-index: -1;
+  }
+}
+
+.hero-content {
+  max-width: 900px;
+  z-index: 1;
+  h2, p {
+    text-shadow: 
+      -1px -1px 0 rgba(0, 0, 0, 0.8),  
+       1px -1px 0 rgba(0, 0, 0, 0.8),
+      -1px 1px 0 rgba(0, 0, 0, 0.8),
+       1px 1px 0 rgba(0, 0, 0, 0.8);
   }
   
+
+
+  h2 {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+    color: #fff;
+    font-weight: 700;
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.9);
+    font-family: 'Orbitron', sans-serif;
+  }
+
+  p {
+    font-size: 1rem;
+    color: #fff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9);
+    font-family: 'Orbitron', sans-serif;
+  }
+
+  
+  .brand-name {
+    display: none;
+  }
+}
