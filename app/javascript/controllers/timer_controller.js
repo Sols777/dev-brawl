@@ -2,15 +2,16 @@ import { Controller } from "@hotwired/stimulus"
 
 
 export default class extends Controller {
- static targets = ["timer", "startButton","stopButton"]
+ static targets = ["timer", "startButton","stopButton","alert"]
  static values = { countdownTime: Number }
 
  connect() {
-   this.countdownTimeValue = 700; // Set the countdown time to 60 seconds
+   this.countdownTimeValue = 700;
  }
 
  startTimer(event) {
    event.preventDefault();
+   this.startTimeValue = Date.now();
    this.startButtonTarget.disabled = true;
    this.timerTarget.textContent = this.countdownTimeValue + ' seconds remaining';
 
@@ -26,7 +27,10 @@ export default class extends Controller {
 
  stopTimer(event) {
    clearInterval(this.countdown);
-   this.timerTarget.textContent = 'Timer ended';
+   this.endTimeValue = Date.now(); // Record the end time
+   const elapsedSeconds = (this.endTimeValue - this.startTimeValue) / 1000;
+   this.timerTarget.textContent = `Trial ended.Time: ${elapsedSeconds} seconds`;
+   this.alertTarget.textContent = `You took ${elapsedSeconds} seconds!`;
    this.startButtonTarget.disabled = true;
  }
 }
