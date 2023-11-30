@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_11_28_162724) do
+ActiveRecord::Schema[7.1].define(version: 2023_11_29_125902) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -33,6 +33,7 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_28_162724) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "image"
   end
 
   create_table "leaderboards", force: :cascade do |t|
@@ -72,7 +73,10 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_28_162724) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "username"
-    t.string "achievements"
+    t.string "achievements", default: "Begginer"
+    t.string "first_name"
+    t.string "last_name"
+    t.date "birthday"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

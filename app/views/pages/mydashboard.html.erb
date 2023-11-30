@@ -1,1 +1,16 @@
-<h1> THIS IS A MY DASHBOARD</h1>
+<div class="">
+  <h1> My Dashboard</h1>
+  <div class="container m-5">
+    <div>This leaderboard</div>
+  </div>
+ <div class="container m-5">
+  <div class="row">
+    <h2>Choose a language</h2>
+    <div class="accordion" id="accordionExample">
+      <% @languages.each_with_index do |language, index| %>
+        <%= render "shared/card_language", language: language, index: index %>
+      <% end %>
+    </div>
+  </div>
+</div>
+</div>

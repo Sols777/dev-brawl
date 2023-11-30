@@ -4,13 +4,18 @@ class PagesController < ApplicationController
   def home
   end
 
+  def test
+  end
+
   def mydashboard
-    @leaderboard = Leaderboard.sample
+    # @leaderboard = Leaderboard.sample
     @languages = Language.all
+    # @language = Language.find_by(id: params[:id])
+    # @challenges = Challenge.where(language_id: @language.id).all
+
   end
 
   def profile
     @user = current_user
   end
-
 end

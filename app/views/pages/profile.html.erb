@@ -1,1 +1,14 @@
-<h1> THIS IS A MY PROFILE</h1>
+<div>
+  <h2>My profile</h2>
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <h3><%= current_user.username %></h3>
+        <p><%= current_user.first_name %><%= current_user.last_name %></p>
+      <div class="col">
+        <p><%= current_user.achievements %></p>
+      </div>
+      </div>
+    </div>
+  </div>
+</div>
