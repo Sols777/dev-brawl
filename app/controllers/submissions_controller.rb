@@ -15,6 +15,11 @@ class SubmissionsController < ApplicationController
     end
   end
 
+  def expected_result
+    @challenge = Challenge.find(params[:id])
+    render json: { expected_result: @challenge.expected_result }
+  end
+
   private
 
   def submission_params
