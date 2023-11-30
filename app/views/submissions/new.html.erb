@@ -1,4 +1,27 @@
 <div data-controller="create-submission">
+  <h4>New challenge</h4>
+  <div class="d-flex justify-content-center">
+    <div class="card" style="width: 18rem;">
+      <div class="card-body">
+        <h5 class="card-title"><%= @challenge.name %></h5>
+        <p class="card-text">Description: <%= @challenge.description %></p>
+        <p class="card-text">Points: <%= @challenge.expected_score %></p>
+        <p class="card-text">Max Time: <%= @challenge.expected_time / 60%> seconds</p>
+        <span class="badge text-bg-info"><%= @challenge.category %></span>
+        <span class="badge text-bg-info"><%= @challenge.language.name %></span>
+        <span class="badge text-bg-info"><%= @challenge.difficulty %></span>
+      </div>
+    </div>
+     <div class="card" style="width: 18rem;">
+      <div data-controller="timer">
+        <button class="btn btn-primary" data-action="click->timer#startTimer" data-target="timer.startButton">Start trial</button>
+        <div data-target="timer.timer">3...2...1..GO</div>
+        <div  class="alert alert-success d-flex align-items-center" role="alert" data-target="timer.alert">good luck!</div>
+        <button class="btn btn-primary" data-action="click->timer#stopTimer" data-target="timer.stopButton">End trial</button>
+      </div>
+      </div>
+    </div>
+  </div>
   <div class="container-ide">
     <div id="editor" >function foo(items) {
         var x = "All this is syntax highlighted";
@@ -8,4 +31,3 @@
   <div data-create-submission-target="output"></div>
   <button class="btn btn-primary" data-action="click->create-submission#runCode" >Rake</button>
 </div>
-<%= @challenge.name %>
