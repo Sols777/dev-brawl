@@ -108,6 +108,7 @@ GEM
       xpath (~> 3.2)
     concurrent-ruby (1.2.2)
     connection_pool (2.4.1)
+    countdown-rails (0.1.0)
     crass (1.0.6)
     date (3.3.4)
     debug (1.8.0)
@@ -289,6 +290,7 @@ DEPENDENCIES
   bootsnap
   bootstrap (~> 5.2)
   capybara
+  countdown-rails
   debug
   devise
   dotenv-rails
