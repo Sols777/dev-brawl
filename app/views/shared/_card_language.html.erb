@@ -1,0 +1,17 @@
+<div class="col accordion-item">
+  <h2 class="accordion-header">
+    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse<%= index%>" aria-expanded="true" aria-controls="collapseOne">
+      <%= language.name %>
+    </button>
+  </h2>
+  <div id="collapse<%= index%>" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+    <div class="card">
+      <h5 class="card-header text-center fw-bold">GAME MODES</h5>
+      <div class="accordion-body d-flex justify-content-evenly">
+        <%= render "time_trial" , language: language %>
+        <%= render "pvp", language: language %>
+        <%= render "training", language: language %>
+      </div>
+    </div>
+  </div>
+</div>

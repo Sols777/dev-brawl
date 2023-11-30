@@ -1,12 +1,51 @@
-.navbar-lewagon {
+.navbar {
+  display: flex;
   justify-content: space-between;
-  background: white;
-}
+  align-items: center;
+  background: transparent;
+  padding: 1rem 2rem;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10;
+  box-shadow: 0 5px 10px rgba(0, 5, 0, 10);
 
-.navbar-lewagon .navbar-collapse {
-  flex-grow: 0;
-}
+  .navbar-brand {
+    color: #fff;
+    font-family: 'Blanka';
+    font-size: 2rem;
+    font-weight: bold;
+    text-shadow: 
+    -1px -1px 0 $primaryColor,  
+     1px -1px 0 $primaryColor,
+    -1px 1px 0 $primaryColor,
+     1px 1px 0 $primaryColor;
+  }
 
-.navbar-lewagon .navbar-brand img {
-  width: 40px;
+  .navbar-links {
+    display: flex;
+    justify-content: flex-end;
+
+    .nav-link {
+      color: #fff;
+      margin-left: 20px;
+      text-decoration: none;
+      padding: 0.5rem 1rem;
+
+      &:hover {
+        background-color: darken($primaryColor, 10%);
+        text-decoration: none;
+      }
+    }
+  }
+
+  .nav-link-login {
+    background-image: linear-gradient(to right, #39BC40, #030D03);
+    border-radius: 5px;
+    color: #fff;
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+    transition: background-color 0.3s;
+  }
 }
