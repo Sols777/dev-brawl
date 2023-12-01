@@ -20,7 +20,7 @@ export default class extends Controller {
 
   setCanvasDimensions() {
     this.canvas.width = window.innerWidth;
-    this.canvas.height = 100; // Set this to the height of your footer or the desired effect height
+    this.canvas.height = 100;
   }
 
   startMatrixRain() {

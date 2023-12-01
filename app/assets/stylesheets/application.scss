@@ -10,3 +10,12 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+
+body {
+    background-color: $secondaryColor;
+  }
+
+  h1, h2, h3, h4, h5, p {
+    font-family: 'Orbitron', sans-serif;
+    color: #ffffff;
+  }
