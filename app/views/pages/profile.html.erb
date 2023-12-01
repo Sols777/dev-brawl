@@ -1,12 +1,13 @@
 <div>
-  <h2>My profile</h2>
+  <h2 class="text-center">My profile</h2>
   <div class="container">
     <div class="row">
       <div class="col">
-        <h3><%= current_user.username %></h3>
-        <p><%= current_user.first_name %><%= current_user.last_name %></p>
+        <h3>Username: <%= current_user.username %></h3>
+        <p>My name: <%= current_user.first_name %> <%= current_user.last_name %></p>
+        <p>My points: <%= current_user.score %></p>
       <div class="col">
-        <p><%= current_user.achievements %></p>
+        <p>My level: <%= current_user.achievements %></p>
         <% @languages.each do |language| %>
           <br>
           <%= render "progress_bar", language: language%>
