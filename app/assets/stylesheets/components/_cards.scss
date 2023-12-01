@@ -3,3 +3,9 @@
     color: white;
     border: none;
 }
+
+#card-game{
+  background-color: $gradientColour !important;
+  border-radius: 8px;
+  color: $secondaryColor;
+}

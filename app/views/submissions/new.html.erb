@@ -4,9 +4,9 @@
     <div class="card" style="width: 18rem;">
       <div class="card-body">
         <h5 class="card-title"><%= @challenge.name %></h5>
-        <p class="card-text">Description: <%= @challenge.description %></p>
-        <p class="card-text">Points: <%= @challenge.expected_score %></p>
-        <p class="card-text">Max Time: <%= @challenge.expected_time / 60%> seconds</p>
+        <p class="card-text text-dark">Description: <%= @challenge.description %></p>
+        <p class="card-text text-dark">Points: <%= @challenge.expected_score %></p>
+        <p class="card-text text-dark">Max Time: <%= @challenge.expected_time / 60%> seconds</p>
         <span class="badge text-bg-info"><%= @challenge.category %></span>
         <span class="badge text-bg-info"><%= @challenge.language.name %></span>
         <span class="badge text-bg-info"><%= @challenge.difficulty %></span>
@@ -32,7 +32,7 @@
       </div>
       <button class="btn btn-primary" data-action="click->expected-results#loadExpectedResult" >Rake</button>
       <button class="btn btn-primary" data-action="click->create-submission#runCode" >Submit</button>
-      <div data-create-submission-target="output"></div>
+      <div class="text-light" data-create-submission-target="output"></div>
       <div data-expected-results-target="expectedOutput"></div>
       <i data-expected-results-target="tick" class="fa-solid fa-check hidden" style="color: #00ff04;"></i>
       <i data-expected-results-target="cross" class="fa-solid fa-xmark hidden" style="color: #fb0404;"></i>
