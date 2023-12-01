@@ -1,8 +1,14 @@
-<div class="">
+ <h1> My Dashboard</h1>
+  <div class=" m-5">
+    <h2>Leaderboard</h2>
+   <ol>
+      <% @users.each do |user| %>
+        <li><%= user.username %> - <%= user.score %> points</li>
+      <% end %>
+    </ol>
+  </div>
  <div class="container m-5">
   <div class="row">
-    <h1 class="dash-title">Dashboard</h1>
-    <h2>Choose a language</h2>
     <div class="accordion" id="accordionExample">
       <% @languages.each_with_index do |language, index| %>
         <%= render "shared/card_language", language: language, index: index %>

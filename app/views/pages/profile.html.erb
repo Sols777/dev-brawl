@@ -7,6 +7,11 @@
         <p><%= current_user.first_name %><%= current_user.last_name %></p>
       <div class="col">
         <p><%= current_user.achievements %></p>
+        <% @languages.each do |language| %>
+          <br>
+          <%= render "progress_bar", language: language%>
+          <br>
+        <% end %>
       </div>
       </div>
     </div>
