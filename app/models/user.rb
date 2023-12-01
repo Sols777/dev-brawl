@@ -12,4 +12,5 @@ class User < ApplicationRecord
   validates :username, presence: true, uniqueness: true
   validates :first_name, presence: true
   validates :last_name, presence: true
+  validates :score, numericality: { greater_than_or_equal_to: 0 }
 end

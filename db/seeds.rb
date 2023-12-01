@@ -11,9 +11,30 @@ Language.destroy_all
 Challenge.destroy_all
 User.destroy_all
 # Create users
-user = User.create!(email: "user@text.com", password: "123123",
+user1 = User.create!(email: "user1@text.com", password: "123123",
                     username: "Javascriptlord",
-                    first_name: "Digo", last_name: "Nunes")
+                    first_name: "Diogo", last_name: "Nunes" , score:149)
+user2= User.create!(email: "user2@text.com", password: "123123",
+                    username: "RubyBubii",
+                    first_name: "Luis", last_name: "Torres" , score:161)
+user3 = User.create!(email: "user3@text.com", password: "123123",
+                    username: "ReactMaster",
+                    first_name: "Joao", last_name: "Martins" , score:231)
+user4 = User.create!(email: "user4@text.com", password: "123123",
+                      username: "FullstackQueen",
+                      first_name: "Isabelle", last_name: "Ferreir" , score:222)
+user5 = User.create!(email: "user5@text.com", password: "123123",
+                    username: "PyhtonLad99",
+                    first_name: "Pete", last_name: "Taylor", score: 153)
+user6 = User.create!(email: "user6@text.com", password: "123123",
+                    username: "CSSmanager88",
+                    first_name: "Francisco", last_name: "Mendonça" , score:191)
+user7 = User.create!(email: "user7@text.com", password: "123123",
+                    username: "fullcatstack",
+                    first_name: "Jess", last_name: "Carvalho" , score:221)
+user8 = User.create!(email: "user8@text.com", password: "123123",
+                    username: "Levagoneking",
+                    first_name: "Le", last_name: "Wagon" , score:122)
 # Create Languages
 ruby = Language.create!(name: "Ruby", image: "app/assets/images/ruby-logo.png")
 javascript = Language.create!(name: "JavaScript", image: "app/assets/images/js-logo.png")

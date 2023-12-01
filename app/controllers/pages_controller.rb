@@ -8,14 +8,12 @@ class PagesController < ApplicationController
   end
 
   def mydashboard
-    # @leaderboard = Leaderboard.sample
     @languages = Language.all
-    # @language = Language.find_by(id: params[:id])
-    # @challenges = Challenge.where(language_id: @language.id).all
-
+    @users = User.order(score: :desc)
   end
 
   def profile
     @user = current_user
+    @languages = Language.all
   end
 end
