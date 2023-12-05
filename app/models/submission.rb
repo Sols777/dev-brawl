@@ -1,4 +1,6 @@
 class Submission < ApplicationRecord
+  attr_accessor :guess
+
   belongs_to :user
   belongs_to :challenge
 
