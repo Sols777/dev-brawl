@@ -20,6 +20,8 @@ class SubmissionsController < ApplicationController
   def expected_result
     @challenge = Challenge.find(params[:challenge_id])
     if params[:output] == @challenge.expected_result
+
+    end
   end
 
   private
@@ -27,5 +29,4 @@ class SubmissionsController < ApplicationController
   def submission_params
     params.require(:submission).permit(:start_time, :end_time, :result, :actual_points, :user_id, :challenge_id)
   end
-end
 end
