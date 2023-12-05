@@ -6,27 +6,21 @@ class SubmissionsController < ApplicationController
   end
 
   def create
+
     @submission = Submission.new(submission_params)
     @submission.user = current_user
+    @submission.challenge = Challenge.find(params[:challenge_id])
     if @submission.save
-      redirect_to submission_path(@submission)
+      current_user.update_score(@submission.challenge.expected_score) if @submission.succeed?
+      redirect_to mydashboard_path()
     else
-      render challenges_path, status: :unprocessable_entity
-    end
-    @guess = params[:output]
-    @submission.guess = @guess
-  end
-
-  def expected_result
-    @challenge = Challenge.find(params[:challenge_id])
-    if params[:output] == @challenge.expected_result
-
+      render :new, status: :unprocessable_entity
     end
   end
 
   private
 
   def submission_params
-    params.require(:submission).permit(:start_time, :end_time, :result, :actual_points, :user_id, :challenge_id)
+    params.require(:submission).permit(:succeed)
   end
 end

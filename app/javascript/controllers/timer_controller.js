@@ -2,7 +2,7 @@ import { Controller } from "@hotwired/stimulus"
 
 
 export default class extends Controller {
- static targets = ["timer", "startButton","stopButton","alert","modal"]
+ static targets = ["timer", "startButton","stopButton","alert","modal","time"]
  static values = { countdownTime: Number }
 
  connect() {
@@ -34,12 +34,7 @@ export default class extends Controller {
   this.modalTarget.textContent = `You took ${elapsedSeconds} seconds!`;
   this.alertTarget.textContent = `You took ${elapsedSeconds} seconds!`;
   this.startButtonTarget.disabled = true;
-
+  // this.time_takenTarget.value = elapsedSeconds;
   // Redirect to another page after 5 seconds (5000 milliseconds)
-}
-
-
- addPoints1(event){
-
- }
+  }
 }

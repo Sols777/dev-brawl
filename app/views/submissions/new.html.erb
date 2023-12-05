@@ -61,8 +61,10 @@
       <i data-create-submission-target="cross" class="fa-solid fa-xmark hidden" style="color: #fb0404;"></i>
       <button data-action="click->timer#stopTimer" data-target="stopButton" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Submit</button>
       <%= render "modal"%>
-      <% if @submission.result == @challenge.expected_result %>
-        <%current_user.score += @challenge.expected_score %>
-      <% end %>
     </div>
+      <%= form_with(model: [@challenge, @submission], url: language_challenge_submissions_path(@challenge.language, @challenge), method: :post) do |form| %>
+        <%= form.hidden_field :succeed, "data-create-submission-target"=> "result" %>
+        <%# <%= form.hidden_field :time_taken, "data-timer-target"=> "time" %>
+        <%= form.submit 'Create Submission' %>
+      <% end %>
 </div>

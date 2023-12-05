@@ -7,16 +7,17 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
-Language.destroy_all
+Submission.destroy_all
 Challenge.destroy_all
+Language.destroy_all
 User.destroy_all
 # Create users
 user1 = User.create!(email: "user1@text.com", password: "123123",
                     username: "Javascriptlord",
-                    first_name: "Digo", last_name: "Nunsh" , score:149)
+                    first_name: "Diogo", last_name: "Nunes" , score:149)
 user2= User.create!(email: "user2@text.com", password: "123123",
                     username: "RubyBubii",
-                    first_name: "Lueesh", last_name: "Tosh" , score:161)
+                    first_name: "Luis", last_name: "Torres" , score:161)
 user3 = User.create!(email: "user3@text.com", password: "123123",
                     username: "ReactMaster",
                     first_name: "Joao", last_name: "Martins" , score:231)
@@ -39,9 +40,9 @@ user8 = User.create!(email: "user8@text.com", password: "123123",
 ruby = Language.create!(name: "Ruby", image: "app/assets/images/ruby-logo.png")
 javascript = Language.create!(name: "JavaScript", image: "app/assets/images/js-logo.png")
 python = Language.create!(name: "Python", image: "app/assets/images/python-logo.png")
-csharp = Language.create!(name: "C#sharp", image: "app/assets/images/chsharp-logo.png")
+cpp = Language.create!(name: "Cpp", image: "app/assets/images/chsharp-logo.png")
 java = Language.create!(name: "Java", image: "app/assets/images/java-logo.png")
-html_css = Language.create!(name: "HTML&CSS", image: "app/assets/images/htmlcss-logo.png")
+html = Language.create!(name: "HTML", image: "app/assets/images/htmlcss-logo.png")
 # Create challenges
 # ruby
 exercise1 = Challenge.create!(name: "ruby exercise", expected_result: "1", expected_score: 3, expected_time: 3600,
@@ -58,7 +59,7 @@ exercise3 = Challenge.create!(name: "pyhton exercise", expected_result: "3", exp
 # csharp
 exercise3 = Challenge.create!(name: "csharp exercise", expected_result: "4", expected_score: 3 , expected_time: 3600,
                               category: "frontend", description: "csharp exercise", difficulty: "begginner",
-                              content: "Do a csharp function where the result is always 4", language_id: csharp.id)
+                              content: "Do a cpp function where the result is always 4", language_id: cpp.id)
 # java
 exercise3 = Challenge.create!(name: "java exercise", expected_result: "5", expected_score: 3 , expected_time: 3600,
                               category: "frontend", description: "java exercise", difficulty: "begginner",
@@ -66,7 +67,4 @@ exercise3 = Challenge.create!(name: "java exercise", expected_result: "5", expec
 # jhtmlcss
 exercise3 = Challenge.create!(name: "html css exercise", expected_result: "6", expected_score: 3 , expected_time: 3600,
                               category: "frontend", description: "html css exercise", difficulty: "begginner",
-                              content: "Do a html css function where the result is always 6", language_id: html_css.id)
-
-# leaderboard
-leaderboard = Leaderboard.create!(ranking: 10)
+                              content: "Do a html css function where the result is always 6", language_id: html.id)

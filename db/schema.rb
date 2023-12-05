@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_12_01_124858) do
+ActiveRecord::Schema[7.1].define(version: 2023_12_05_152844) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -52,14 +52,13 @@ ActiveRecord::Schema[7.1].define(version: 2023_12_01_124858) do
   end
 
   create_table "submissions", force: :cascade do |t|
-    t.time "start_time"
-    t.time "end_time"
-    t.text "result"
     t.integer "actual_points"
     t.bigint "user_id", null: false
     t.bigint "challenge_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "succeed", default: false
+    t.float "time_taken"
     t.index ["challenge_id"], name: "index_submissions_on_challenge_id"
     t.index ["user_id"], name: "index_submissions_on_user_id"
   end

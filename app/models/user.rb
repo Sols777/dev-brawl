@@ -13,4 +13,9 @@ class User < ApplicationRecord
   validates :first_name, presence: true
   validates :last_name, presence: true
   validates :score, numericality: { greater_than_or_equal_to: 0 }
+
+  def update_score(points)
+    self.score += points
+    save
+  end
 end
