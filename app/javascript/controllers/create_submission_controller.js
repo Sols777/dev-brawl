@@ -1,19 +1,31 @@
 import { Controller } from "@hotwired/stimulus"
-
-// Connects to data-controller="create-submission"
 export default class extends Controller {
-  static targets = ["output"]
 
-  connect() {
-    var editor = ace.edit("editor");
-    editor.setTheme("ace/theme/monokai");
-    editor.session.setMode("ace/mode/javascript");
+  static targets = [ "output", "expectedOutput", "tick", "cross" ]
+  static values = {
+    expectedOutput: String
   }
 
-  runCode(){
-    var code = ace.edit("editor").getValue();
-    var result = eval(code);
-    console.log(result);
-    this.outputTarget.innerHTML = result;
+connect()
+{
+  window.onmessage = (event) => {
+    console.log("cheese")
+    if(!event.data.result) return;
+    const output = event.data.result.output.trim();
+    console.log(output);
+    this.outputTarget.innerHTML = output;
+    const tickTarget = this.tickTarget;
+    const crossTarget = this.crossTarget;
+    const expected = this.expectedOutputTarget.innerHTML.trim();
+    console.log(JSON.stringify(expected))
+    console.log(JSON.stringify(output))
+    if (output === expected) {
+      tickTarget.classList.remove('hidden');
+      crossTarget.classList.add('hidden');
+    } else {
+      crossTarget.classList.remove('hidden');
+      tickTarget.classList.add('hidden');
+    }
   }
+ }
 }

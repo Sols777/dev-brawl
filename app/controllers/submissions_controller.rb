@@ -13,11 +13,13 @@ class SubmissionsController < ApplicationController
     else
       render challenges_path, status: :unprocessable_entity
     end
+    @guess = params[:output]
+    @submission.guess = @guess
   end
 
   def expected_result
-    @challenge = Challenge.find(params[:id])
-    render json: { expected_result: @challenge.expected_result }
+    @challenge = Challenge.find(params[:challenge_id])
+    if params[:output] == @challenge.expected_result
   end
 
   private
@@ -25,4 +27,5 @@ class SubmissionsController < ApplicationController
   def submission_params
     params.require(:submission).permit(:start_time, :end_time, :result, :actual_points, :user_id, :challenge_id)
   end
+end
 end

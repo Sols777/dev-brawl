@@ -13,10 +13,10 @@ User.destroy_all
 # Create users
 user1 = User.create!(email: "user1@text.com", password: "123123",
                     username: "Javascriptlord",
-                    first_name: "Diogo", last_name: "Nunes" , score:149)
+                    first_name: "Digo", last_name: "Nunsh" , score:149)
 user2= User.create!(email: "user2@text.com", password: "123123",
                     username: "RubyBubii",
-                    first_name: "Luis", last_name: "Torres" , score:161)
+                    first_name: "Lueesh", last_name: "Tosh" , score:161)
 user3 = User.create!(email: "user3@text.com", password: "123123",
                     username: "ReactMaster",
                     first_name: "Joao", last_name: "Martins" , score:231)

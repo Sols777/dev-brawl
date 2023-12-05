@@ -1,3 +1,23 @@
+<script data-controller="create-submission">
+ window.onmessage = (event) => {
+   if(!event.data.result) return;
+   const output = event.data.result.output;
+   console.log(output);
+   document.querySelector('[data-create-submission-target="output"]').innerHTML = output;
+
+   // Dispatch a custom event
+   const deed = new CustomEvent('loadExpectedResults');
+   window.dispatchEvent(deed);
+
+   // Call Rails controller method
+   Rails.ajax({
+       url: "/submissions",
+       type: "POST",
+       data: {output: event.data.result.output}
+   });
+ }
+</script>
+
 <div class="d" data-controller="create-submission">
   <h4>New challenge</h4>
   <div class="d-flex justify-content-center">
@@ -24,21 +44,22 @@
         <button class="btn btn-primary" data-action="click->timer#stopTimer" data-target="timer.stopButton">End trial</button>
       </div>
       </div>
+        <% language_name = @language.name.html_safe %>
   </div>
-    <div class="fd" data-controller="expected-results" data-expected-results-challenge-id-value="<%= @challenge.id %>">
+    <div class="fd">
       <div class="container-ide">
-        <div id="editor" >function foo() {
-            var x = "Turn this into something that displays the integer 1";
-            return x;
-          }
-          foo()
-        </div>
+        <iframe
+        frameBorder="0"
+        height="500px"
+        src="https://onecompiler.com/embed/<%= @language.name.downcase %>?codeChangeEvent=true&listenToEvent=true&theme=dark&hideNew=true"
+        width="150%"
+        ></iframe>
       </div>
-      <button class="btn btn-primary" data-action="click->expected-results#loadExpectedResult" >Rake</button>
-      <button class="btn btn-primary" data-action="click->create-submission#runCode" >Submit</button>
+
+      <button class="btn btn-primary">Submit</button>
       <div class="text-light" data-create-submission-target="output"></div>
-      <div data-expected-results-target="expectedOutput"></div>
-      <i data-expected-results-target="tick" class="fa-solid fa-check hidden" style="color: #00ff04;"></i>
-      <i data-expected-results-target="cross" class="fa-solid fa-xmark hidden" style="color: #fb0404;"></i>
+      <div data-create-submission-target="expectedOutput" class="hidden"><%= @challenge.expected_result %></div>
+      <i data-create-submission-target="tick" class="fa-solid fa-check hidden" style="color: #00ff04;"></i>
+      <i data-create-submission-target="cross" class="fa-solid fa-xmark hidden" style="color: #fb0404;"></i>
     </div>
 </div>
