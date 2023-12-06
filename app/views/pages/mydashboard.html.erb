@@ -1,11 +1,10 @@
 <div class="dashboard-container">
   <h1>Dashboard</h1>
   <div class="dashboard-sections">
-    
     <div class="leaderboard-container">
       <h2>Leaderboard</h2>
       <ol class="leaderboard-list">
-        <% @users.each_with_index do |user, index| %>
+        <% @users_score.each_with_index do |user, index| %>
           <li class="leaderboard-item <%= 'first-place' if index == 0 %> <%= 'second-place' if index == 1 %> <%= 'third-place' if index == 2 %>">
             <% if index == 0 %>
               <div class="flame-container">
@@ -36,7 +35,10 @@
 
     <div class="language-selection">
       <h2>Choose the language</h2>
-      <% @languages.each_with_index do |language, index| %>
+    <div class="container m-5">
+    <div class="row">
+      <div class="accordion" id="accordionExample">
+       <% @languages.each_with_index do |language, index| %>
         <div class="language-card">
           <div class="language-card-header">
             <button class="language-card-toggle" type="button" data-bs-toggle="collapse" data-bs-target="#collapse<%= index %>">
@@ -53,6 +55,5 @@
         </div>
       <% end %>
     </div>
-
   </div>
 </div>
