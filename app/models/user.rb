@@ -18,4 +18,14 @@ class User < ApplicationRecord
     self.score += points
     save
   end
+
+  def completion_percentage_for(language)
+    total = Challenge.joins(:language).where(languages: {name: language}).count
+    completed = completed_challenges_for(language)
+    (completed.to_f / total) * 100
+  end
+
+  def completed_challenges_for(language)
+    challenges.includes(:language).where("language.name" => language).count
+  end
 end
