@@ -1,8 +1,9 @@
 <div class="dashboard-container">
-  <h1>Home</h1>
+  <h1>Brawl Center</h1>
   <div class="dashboard-sections">
     <div class="language-selection">
-      <h2>Choose the language</h2>
+      <%= render "main_leaderboard" %>
+      <h2>Play now</h2>
       <div class="accordion" id="accordionExample">
        <% @languages.each_with_index do |language, index| %>
         <div class="language-card">
@@ -22,6 +23,5 @@
       <% end %>
       </div>
     </div>
-    <%= render "main_leaderboard" %>
   </div>
   </div>
