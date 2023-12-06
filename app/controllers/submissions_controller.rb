@@ -6,7 +6,6 @@ class SubmissionsController < ApplicationController
   end
 
   def create
-
     @submission = Submission.new(submission_params)
     @submission.user = current_user
     @submission.challenge = Challenge.find(params[:challenge_id])

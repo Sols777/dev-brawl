@@ -16,5 +16,15 @@ class PagesController < ApplicationController
   def profile
     @user = current_user
     @languages = Language.all
+    @win_percentage = calculate_win_percentage(@user.submissions)
+  end
+
+  private
+
+  def calculate_win_percentage(submissions)
+    return 0 if submissions.empty?
+
+    win_count = submissions.count { |submission| submission.succeed }
+    (win_count.to_f / submissions.count) * 100
   end
 end

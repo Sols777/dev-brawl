@@ -32,7 +32,7 @@
         <span class="badge text-bg-info"><%= @challenge.difficulty %></span>
       </div>
     </div>
-      <div class="card" style="width: 30rem;">
+      <div class="card" style="width: 10rem;">
       <div>
         <button class="btn btn-primary" data-action="click->timer#startTimer" data-timer-target="startButton">Start trial</button>
         <div data-timer-target="timer">3...2...1..GO</div>
@@ -42,9 +42,15 @@
           </div>
         </div>
       </div>
+        <div class="text-light hidden" data-create-submission-target="output"></div>
+        <div data-create-submission-target="expectedOutput" class="hidden"><%= @challenge.expected_result %></div>
+          <i data-create-submission-target="tick" class="fa-solid fa-check hidden" style="color: #00ff04;"> It's correct!</i>
+          <i data-create-submission-target="cross" class="fa-solid fa-xmark hidden" style="color: #fb0404;"> It's wrong , try again!</i>
       </div>
+        <button data-action="click->timer#stopTimer" data-target="stopButton" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">End challenge</button>
+        <%= render "modal"%>
+    </div>
         <% language_name = @language.name.html_safe %>
-  </div>
     <div class="fd">
     <div id="challenge-data" data-language-name="<%= @language.name %>" data-language-extension="<%= @language.extension %>" data-language-comment="<%= @language.comment %>" data-challenge-content="<%= @challenge.content %>"></div>
       <div class="container-ide">
@@ -55,17 +61,5 @@
         width="150%"
         ></iframe>
       </div>
-
-      <div class="text-light" data-create-submission-target="output"></div>
-      <div data-create-submission-target="expectedOutput" class="hidden"><%= @challenge.expected_result %></div>
-      <i data-create-submission-target="tick" class="fa-solid fa-check hidden" style="color: #00ff04;"></i>
-      <i data-create-submission-target="cross" class="fa-solid fa-xmark hidden" style="color: #fb0404;"></i>
-      <button data-action="click->timer#stopTimer" data-target="stopButton" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Submit</button>
-      <%= render "modal"%>
-    </div>
-      <%= form_with(model: [@challenge, @submission], url: language_challenge_submissions_path(@challenge.language, @challenge), method: :post) do |form| %>
-        <%= form.hidden_field :succeed, "data-create-submission-target"=> "result" %>
-        <%= form.hidden_field :time_taken, "data-timer-target"=> "time" %>
-        <%= form.submit 'Create Submission' %>
-      <% end %>
+ </div>
 </div>
