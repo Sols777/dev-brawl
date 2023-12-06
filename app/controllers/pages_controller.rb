@@ -4,7 +4,11 @@ class PagesController < ApplicationController
   def home
   end
 
-  def test
+  def leaderboards
+    @languages = Language.all
+    @user = current_user
+    @users_score = User.order(score: :desc)
+    @users_time = User.includes(:submissions).order("submissions.time_taken ASC").distinct
   end
 
   def mydashboard
