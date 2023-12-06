@@ -18,7 +18,7 @@
  }
 </script>
 
-<div class="d" data-controller="create-submission">
+<div class="d" data-controller="create-submission timer">
   <h4>New challenge</h4>
   <div class="d-flex justify-content-center">
     <div class="card" style="width: 18rem;">
@@ -33,15 +33,14 @@
       </div>
     </div>
       <div class="card" style="width: 30rem;">
-      <div data-controller="timer">
+      <div>
         <button class="btn btn-primary" data-action="click->timer#startTimer" data-target="timer.startButton">Start trial</button>
-        <div data-target="timer.timer">3...2...1..GO</div>
-        <div  class="alert alert-success d-flex align-items-center" role="alert" data-target="timer.alert">
+        <div data-timer-target="timer">3...2...1..GO</div>
+        <div  class="alert alert-success d-flex align-items-center" role="alert" data-target="alert">
           <div class="spinner-border" role="status">
             <span class="visually-hidden">Loading...</span>
           </div>
         </div>
-        <button class="btn btn-primary" data-action="click->timer#stopTimer" data-target="timer.stopButton">End trial</button>
       </div>
       </div>
         <% language_name = @language.name.html_safe %>
@@ -57,10 +56,16 @@
         ></iframe>
       </div>
 
-      <button class="btn btn-primary">Submit</button>
       <div class="text-light" data-create-submission-target="output"></div>
       <div data-create-submission-target="expectedOutput" class="hidden"><%= @challenge.expected_result %></div>
       <i data-create-submission-target="tick" class="fa-solid fa-check hidden" style="color: #00ff04;"></i>
       <i data-create-submission-target="cross" class="fa-solid fa-xmark hidden" style="color: #fb0404;"></i>
+      <button data-action="click->timer#stopTimer" data-target="stopButton" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Submit</button>
+      <%= render "modal"%>
     </div>
+      <%= form_with(model: [@challenge, @submission], url: language_challenge_submissions_path(@challenge.language, @challenge), method: :post) do |form| %>
+        <%= form.hidden_field :succeed, "data-create-submission-target"=> "result" %>
+        <%# <%= form.hidden_field :time_taken, "data-timer-target"=> "time" %>
+        <%= form.submit 'Create Submission' %>
+      <% end %>
 </div>
