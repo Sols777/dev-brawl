@@ -28,12 +28,5 @@
           </li>
         <% end %>
       </ol>
-      <h3>Best times overall:</h3>
-      <ol>
-        <% @users_time.each do |user| %>
-            <li class="<%= 'text-danger' if current_user == user %>">
-              <%= user.username %> - <%= user.submissions.minimum(:time_taken) %> seconds - <%= user.submissions.order("time_taken ASC").first.challenge.language.name %>
-            </li>
-        <% end %>
-    </ol>
+      <%= link_to "See all leaderboards", "/leaderboards", class: "btn btn-ghost" %>
     </div>
