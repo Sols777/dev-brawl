@@ -6,7 +6,6 @@ class SubmissionsController < ApplicationController
   end
 
   def create
-
     @submission = Submission.new(submission_params)
     @submission.user = current_user
     @submission.challenge = Challenge.find(params[:challenge_id])
@@ -21,6 +20,6 @@ class SubmissionsController < ApplicationController
   private
 
   def submission_params
-    params.require(:submission).permit(:succeed)
+    params.require(:submission).permit(:succeed, :time_taken)
   end
 end

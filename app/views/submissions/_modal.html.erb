@@ -8,13 +8,18 @@
       <div class="modal-body">
         <div class="hidden" data-create-submission-target="wincon">
           <p class="text-dark">Good job <%= current_user.username %> you gained <%= @challenge.expected_score %> points ! You took <span class="text-dark" data-timer-target="modal"></span> seconds to complet this challenge. </p>
+          <p class="text-dark">The user<%= @challenge.submissions.first.user.username %> has the best time. Completed this challenge in <%= @challenge.submissions.first.time_taken %> seconds.</p>
         </div>
         <div class="hidden" data-create-submission-target="losecon">
           <p class="text-dark">Oh nooo<%= current_user.username %> you lost this challenge your answer was incorret!</p>
         </div>
       </div>
       <div class="modal-footer">
-        <%= link_to "go to dashboard", mydashboard_path, class: "btn btn-warning" %>
+        <%= form_with(model: [@challenge, @submission], url: language_challenge_submissions_path(@challenge.language, @challenge), method: :post) do |form| %>
+          <%= form.hidden_field :succeed, "data-create-submission-target"=> "result" %>
+          <%= form.hidden_field :time_taken, "data-timer-target"=> "time" %>
+          <%= form.submit 'Send my Submission' %>
+        <% end %>
       </div>
     </div>
   </div>

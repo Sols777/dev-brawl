@@ -37,34 +37,43 @@ user8 = User.create!(email: "user8@text.com", password: "123123",
                     username: "Levagoneking",
                     first_name: "Le", last_name: "Wagon" , score:122)
 # Create Languages
-ruby = Language.create!(name: "Ruby", image: "app/assets/images/ruby-logo.png")
-javascript = Language.create!(name: "JavaScript", image: "app/assets/images/js-logo.png")
-python = Language.create!(name: "Python", image: "app/assets/images/python-logo.png")
-cpp = Language.create!(name: "Cpp", image: "app/assets/images/chsharp-logo.png")
-java = Language.create!(name: "Java", image: "app/assets/images/java-logo.png")
-html = Language.create!(name: "HTML", image: "app/assets/images/htmlcss-logo.png")
+ruby = Language.create!(name: "Ruby",extension:".rb" ,comment:"#" , image: "app/assets/images/ruby-logo.png")
+javascript = Language.create!(name: "JavaScript",extension:".js" ,comment:"//" , image: "app/assets/images/js-logo.png")
+python = Language.create!(name: "Python",extension:".py" ,comment:"#" , image: "app/assets/images/python-logo.png")
+cpp = Language.create!(name: "Cpp",extension:".cpp" ,comment:"//" , image: "app/assets/images/chsharp-logo.png")
+java = Language.create!(name: "Java",extension:".java" ,comment:"//" , image: "app/assets/images/java-logo.png")
+swift = Language.create!(name: "swift",extension:".swift" ,comment:"//" , image: "app/assets/images/htmlcss-logo.png")
 # Create challenges
 # ruby
-exercise1 = Challenge.create!(name: "ruby exercise", expected_result: "1", expected_score: 3, expected_time: 3600,
-                              category: "frontend", description: "ruby exercise", difficulty: "begginner",
+exercise1 = Challenge.create!(name: "ruby exercise", expected_result: "1", expected_score: 3, expected_time: 900,
+                              category: "backend", description: "ruby exercise", difficulty: "begginner",
                               content: "Do a ruby function where the result is always 1", language_id: ruby.id)
 # javascript
-exercise2 = Challenge.create!(name: "Javascript exercise", expected_result: "2", expected_score: 3, expected_time: 3600,
-                              category: "frontend", description: "Javascript exercise", difficulty: "begginner",
+exercise2 = Challenge.create!(name: "Javascript exercise", expected_result: "2", expected_score: 3, expected_time: 900,
+                              category: "backend", description: "Javascript exercise", difficulty: "begginner",
                               content: "Do a javascript function where the result is always 2", language_id: javascript.id)
 # python
-exercise3 = Challenge.create!(name: "pyhton exercise", expected_result: "3", expected_score: 3 , expected_time: 3600,
-                              category: "frontend", description: "pyhton exercise", difficulty: "begginner",
+exercise3 = Challenge.create!(name: "pyhton exercise", expected_result: "3", expected_score: 3 , expected_time: 900,
+                              category: "backend", description: "pyhton exercise", difficulty: "begginner",
                               content: "Do a pyhton function where the result is always 3", language_id: python.id)
 # csharp
-exercise3 = Challenge.create!(name: "csharp exercise", expected_result: "4", expected_score: 3 , expected_time: 3600,
-                              category: "frontend", description: "csharp exercise", difficulty: "begginner",
+exercise4 = Challenge.create!(name: "csharp exercise", expected_result: "4", expected_score: 3 , expected_time: 900,
+                              category: "backend", description: "csharp exercise", difficulty: "begginner",
                               content: "Do a cpp function where the result is always 4", language_id: cpp.id)
 # java
-exercise3 = Challenge.create!(name: "java exercise", expected_result: "5", expected_score: 3 , expected_time: 3600,
-                              category: "frontend", description: "java exercise", difficulty: "begginner",
+exercise5 = Challenge.create!(name: "java exercise", expected_result: "5", expected_score: 3 , expected_time: 900,
+                              category: "backend", description: "java exercise", difficulty: "begginner",
                               content: "Do a java function where the result is always 5", language_id: java.id)
 # jhtmlcss
-exercise3 = Challenge.create!(name: "html css exercise", expected_result: "6", expected_score: 3 , expected_time: 3600,
-                              category: "frontend", description: "html css exercise", difficulty: "begginner",
-                              content: "Do a html css function where the result is always 6", language_id: html.id)
+exercise6 = Challenge.create!(name: "swift exercise", expected_result: "6", expected_score: 3 , expected_time: 900,
+                              category: "backend", description: "swift css exercise", difficulty: "begginner",
+                              content: "Do a swift css function where the result is always 6", language_id: swift.id)
+# Create submissions
+submission1 = Submission.create!(succeed: true, time_taken: 20.37, user_id: user1.id, challenge_id: exercise1.id)
+submission2 = Submission.create!(succeed: true, time_taken: 34.05, user_id: user2.id, challenge_id: exercise2.id)
+submission3 = Submission.create!(succeed: true, time_taken: 38.23, user_id: user3.id, challenge_id: exercise3.id)
+submission4 = Submission.create!(succeed: true, time_taken: 54.34, user_id: user4.id, challenge_id: exercise4.id)
+submission5 = Submission.create!(succeed: true, time_taken: 24.15, user_id: user5.id, challenge_id: exercise5.id)
+submission6 = Submission.create!(succeed: true, time_taken: 64.45, user_id: user6.id, challenge_id: exercise6.id)
+submission7 = Submission.create!(succeed: true, time_taken: 54.39, user_id: user7.id, challenge_id: exercise5.id)
+submission8 = Submission.create!(succeed: true, time_taken: 44.09, user_id: user8.id, challenge_id: exercise2.id)
