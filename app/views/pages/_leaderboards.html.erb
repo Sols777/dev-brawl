@@ -1,0 +1,39 @@
+<div class="leaderboard-container">
+      <h2>Leaderboard</h2>
+      <ol class="leaderboard-list">
+        <% @users_score.each_with_index do |user, index| %>
+          <li class=" <%= 'text-danger' if current_user == user %> leaderboard-item <%= 'first-place' if index == 0 %> <%= 'second-place' if index == 1 %> <%= 'third-place' if index == 2 %>">
+            <% if index == 0 %>
+              <div class="flame-container">
+                <div class="flame">
+                  <% 50.times do %>
+                    <div class="particle"></div>
+                  <% end %>
+                </div>
+              </div>
+              <%= image_tag('goldmedal.png', alt: 'Gold Medal', class: 'medal-icon') %>
+            <% elsif index == 1 %>
+              <%= image_tag('silvermedal.png', alt: 'Silver Medal', class: 'medal-icon') %>
+            <% elsif index == 2 %>
+              <%= image_tag('bronzemedal.png', alt: 'Bronze Medal', class: 'medal-icon') %>
+            <% end %>
+            <span class="ranking"><%= "#{index + 1}º" %></span>
+            <div class="user-card <%= 'bronze-stroke' if index == 2 %>">
+              <div class="hexagon"></div>
+              <div class="user-info ">
+                <span class="username "><%= user.username %></span>
+                <span class="score"><%= user.score %> points</span>
+              </div>
+            </div>
+          </li>
+        <% end %>
+      </ol>
+      <h3>Best times overall:</h3>
+      <ol>
+        <% @users_time.each do |user| %>
+            <li class="<%= 'text-danger' if current_user == user %>">
+              <%= user.username %> - <%= user.submissions.minimum(:time_taken) %> seconds - <%= user.submissions.order("time_taken ASC").first.challenge.language.name %>
+            </li>
+        <% end %>
+    </ol>
+    </div>
