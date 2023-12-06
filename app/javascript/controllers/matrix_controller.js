@@ -12,7 +12,7 @@ export default class extends Controller {
     this.canvas = this.element;
     this.ctx = this.canvas.getContext('2d');
     this.setCanvasDimensions();
-    this.characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ123456789@#$%^&*()*&^%";
+    this.characters = "アイウ 0987654321エオカ  キクケ  コキャキュキョサシスセソシャシュショタチツテトチャチュチョナニヌネノニャニュニョハヒフヘホヒャヒュヒョマミムメモミャミュミョヤユヨラリルレロリャリュリョワン ガ ギグゲ ゴギャギュギョザジズゼ ゾジャジュ ジョダヂ ヅデドバ ビブベ ボビャ ビュ ビョパ ピプペポピャピュピョファフィ フェフォツァティトゥウェウォ";
     this.fontSize = 10;
     this.columns = this.canvas.width / this.fontSize;
     this.drops = new Array(Math.floor(this.columns)).fill(0);

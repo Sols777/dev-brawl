@@ -1,30 +1,65 @@
- <h1 class="text-center">Home</h1>
-  <div class=" m-5">
-    <h2>Leaderboard</h2>
-    <h3>Ranking:</h3>
-   <ol>
-      <% @users_score.each do |user| %>
-        <li class="<%= 'text-danger' if current_user == user %>">
-          <%= user.username %> - <%= user.score %> points
-        </li>
-      <% end %>
-    </ol>
-    <h3>Best times overall:</h3>
-    <ol>
-      <% @users_time.each do |user| %>
-          <li class="<%= 'text-danger' if current_user == user %>">
-            <%= user.username %> - <%= user.submissions.minimum(:time_taken) %> seconds - <%= user.submissions.order("time_taken ASC").first.challenge.language.name %>
+<div class="dashboard-container">
+  <h1>Home</h1>
+  <div class="dashboard-sections">
+    <div class="leaderboard-container">
+      <h2>Leaderboard</h2>
+      <ol class="leaderboard-list">
+        <% @users_score.each_with_index do |user, index| %>
+          <li class=" <%= 'text-danger' if current_user == user %> leaderboard-item <%= 'first-place' if index == 0 %> <%= 'second-place' if index == 1 %> <%= 'third-place' if index == 2 %>">
+            <% if index == 0 %>
+              <div class="flame-container">
+                <div class="flame">
+                  <% 50.times do %>
+                    <div class="particle"></div>
+                  <% end %>
+                </div>
+              </div>
+              <%= image_tag('goldmedal.png', alt: 'Gold Medal', class: 'medal-icon') %>
+            <% elsif index == 1 %>
+              <%= image_tag('silvermedal.png', alt: 'Silver Medal', class: 'medal-icon') %>
+            <% elsif index == 2 %>
+              <%= image_tag('bronzemedal.png', alt: 'Bronze Medal', class: 'medal-icon') %>
+            <% end %>
+            <span class="ranking"><%= "#{index + 1}º" %></span>
+            <div class="user-card <%= 'bronze-stroke' if index == 2 %>">
+              <div class="hexagon"></div>
+              <div class="user-info ">
+                <span class="username "><%= user.username %></span>
+                <span class="score"><%= user.score %> points</span>
+              </div>
+            </div>
           </li>
-      <% end %>
+        <% end %>
+      </ol>
+      <h3>Best times overall:</h3>
+      <ol>
+        <% @users_time.each do |user| %>
+            <li class="<%= 'text-danger' if current_user == user %>">
+              <%= user.username %> - <%= user.submissions.minimum(:time_taken) %> seconds - <%= user.submissions.order("time_taken ASC").first.challenge.language.name %>
+            </li>
+        <% end %>
     </ol>
-  </div>
- <div class="container m-5">
-  <div class="row">
-    <div class="accordion" id="accordionExample">
-      <% @languages.each_with_index do |language, index| %>
-        <%= render "shared/card_language", language: language, index: index %>
+    </div>
+    <div class="language-selection">
+      <h2>Choose the language</h2>
+      <div class="accordion" id="accordionExample">
+       <% @languages.each_with_index do |language, index| %>
+        <div class="language-card">
+          <div class="language-card-header">
+            <button class="language-card-toggle" type="button" data-bs-toggle="collapse" data-bs-target="#collapse<%= index %>">
+              <%= language.name %>
+            </button>
+          </div>
+          <div id="collapse<%= index %>" class="collapse language-modes">
+            <div class="mode-cards">
+              <%= render "time_trial", language: language %>
+              <%= render "pvp", language: language %>
+              <%= render "training", language: language %>
+            </div>
+          </div>
+        </div>
       <% end %>
+      </div>
     </div>
   </div>
-</div>
-</div>
+  </div>
