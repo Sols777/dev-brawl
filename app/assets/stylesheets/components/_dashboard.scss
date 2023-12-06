@@ -1,0 +1,234 @@
+$fireColor: rgb(255, 80, 0);
+$fireColorT: rgba(255, 80, 0, 0);
+$dur: 1s;
+$blur: 0.02em;
+$fireRad: 3em;
+$parts: 50;
+$partSize: 2em; // Adjusted for more subtle flames
+
+$goldColor: gold;
+$silverColor: silver;
+$bronzeColor: #cd7f32;
+
+body {
+  background-color: rgb(48, 8, 8);
+  margin: 0;
+}
+
+.dashboard-container {
+  background-color: #0E0E0E;
+  color: white;
+  padding: 2rem;
+  font-family: 'Orbitron', sans-serif;
+
+  h1 {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  .dashboard-sections {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .leaderboard-container,
+  .language-selection {
+    flex: 1;
+    margin-right: 1rem;
+  }
+
+  .leaderboard-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .leaderboard-item {
+    background: linear-gradient(145deg, #252525, #1c1c1c);
+    border-radius: 10px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
+
+    &.first-place {
+      border: 2px solid $goldColor;
+
+      .flame-container {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        filter: blur($blur);
+        -webkit-filter: blur($blur);
+        overflow: visible;
+        z-index: -1; // Behind the content
+      }
+
+      .flame {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        align-content: flex-end;
+      }
+
+      .particle {
+        animation: rise $dur ease-in infinite;
+        background-image: radial-gradient(circle, $fireColor 20%, $fireColorT 70%);
+        border-radius: 50%;
+        mix-blend-mode: screen;
+        opacity: 0;
+        position: absolute;
+        bottom: 0;
+        width: $partSize;
+        height: $partSize;
+        animation-delay: $dur * (random(100) / 100);
+        left: calc((100% - #{$partSize}) * random(100) / 100);
+      }
+    }
+
+    &.second-place {
+      border: 2px solid $silverColor;
+    }
+
+    &.third-place {
+      border: 2px solid $bronzeColor;
+    }
+
+    &:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.6);
+    }
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(255, 255, 255, 0.05);
+      transform: translateY(-50%) skewY(-3deg);
+      pointer-events: none;
+    }
+  }
+
+  .medal-icon {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 60px;
+    width: auto;
+    margin-right: 10px;
+    left: auto;
+    right: 10px;
+  }
+
+  .ranking {
+    margin-right: 10px;
+  }
+
+  .user-card {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .username {
+    font-size: 1.2rem;
+    font-weight: bold;
+  }
+
+  .score {
+    font-size: 1rem;
+    background: #39BC40;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+  }
+
+  .language-card {
+    background: #222;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+    overflow: hidden;
+    transition: box-shadow 0.3s;
+
+    &:hover {
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
+    }
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 5px;
+      background: linear-gradient(to right, #39BC40, #03D);
+      border-radius: 10px 10px 0 0;
+    }
+  }
+
+  .language-card-header {
+    padding: 1rem;
+    background: linear-gradient(145deg, #2b2b2b, #222);
+  }
+
+  .language-card-toggle {
+    width: 100%;
+    text-align: left;
+    border: none;
+    background: none;
+    color: white;
+    font-size: 1.5rem;
+    padding: 0;
+    transition: color 0.3s;
+
+    &:hover {
+      color: #39BC40;
+    }
+  }
+
+  .language-modes {
+    padding: 1rem;
+    background: #1b1b1b;
+  }
+
+  .mode-cards {
+    display: flex;
+    justify-content: space-around;
+  }
+
+  @media (max-width: 768px) {
+    .dashboard-sections {
+      flex-direction: column;
+    }
+
+    .leaderboard-container,
+    .language-selection {
+      margin-right: 0;
+    }
+  }
+}
+
+// Keyframes for the flame effect
+@keyframes rise {
+  0%, 100% {
+    opacity: 0; // Start and end invisible
+    transform: translateY(0) scale(1); // Start at initial position
+  }
+  50% {
+    opacity: 1; // Fully visible at the middle of the animation
+    transform: translateY(-50%) scale(1.5); // Move up and increase size
+  }
+}

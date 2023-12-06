@@ -1,3 +1,12 @@
-<div class="progress align-items-center" role="progressbar" aria-label="Animated striped example" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="height: 30px">
-  <div class="progress-bar progress-bar-striped progress-bar-animated" style="width: <%=rand(1...75) %>%"><p><%= language.name %></p></div>
+<div class="progress" style="height: 30px;">
+  <div class="progress-bar progress-bar-striped progress-bar-animated" id="random-progress" style="background-color: #39BC40; color: white;">
+    <p style="margin: 0; text-align: center;"><%= language.name %></p>
+  </div>
 </div>
+
+<script>
+  const randomWidth = Math.floor(Math.random() * 75) + 1;
+  const progressBar = document.getElementById("random-progress");
+  progressBar.style.width = `${randomWidth}%`;
+</script>
+
