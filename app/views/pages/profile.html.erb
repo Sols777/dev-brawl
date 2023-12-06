@@ -5,8 +5,8 @@
       <div class="col">
         <h3>Username: <%= current_user.username %></h3>
         <p>My name: <%= current_user.first_name %> <%= current_user.last_name %></p>
-        <p>My points: <%= current_user.score %></p>
         <p>My level: <%= current_user.achievements %></p>
+        <p>My points: <%= current_user.score %></p>
         <p>My best submission time is <%= current_user.submissions.minimum(:time_taken) %> seconds.</p>
       <div class="col">
         <% @languages.each do |language| %>

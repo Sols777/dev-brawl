@@ -12,6 +12,8 @@ export default class extends Controller {
     const challengeData = document.getElementById('challenge-data');
     const languageName = challengeData.dataset.languageName;
     const challengeContent = challengeData.dataset.challengeContent;
+    const languageExtension = challengeData.dataset.languageExtension;
+    const languageComment= challengeData.dataset.languageComment;
 
     iFrame.onload = function() {
       iFrame.contentWindow.postMessage({
@@ -19,8 +21,8 @@ export default class extends Controller {
         language: `${languageName.toLowerCase()}`,
         files: [
             {
-                "name": `${languageName.toLowerCase()}DevBrawl1.js`,
-                "content": `${challengeContent}`
+                "name": `${languageName.toLowerCase()}DevBrawl${languageExtension}`,
+                "content": `${languageComment} ${challengeContent}`
             }
         ]
       }, "*");

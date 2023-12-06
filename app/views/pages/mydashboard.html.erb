@@ -4,13 +4,17 @@
     <h3>Ranking:</h3>
    <ol>
       <% @users_score.each do |user| %>
-        <li><%= user.username %> - <%= user.score %> points</li>
+        <li class="<%= 'text-danger' if current_user == user %>">
+          <%= user.username %> - <%= user.score %> points
+        </li>
       <% end %>
     </ol>
     <h3>Best times:</h3>
     <ol>
       <% @users_time.each do |user| %>
-        <li><%= user.username %> - <%= user.submissions.minimum(:time_taken) %> seconds</li>
+          <li class="<%= 'text-danger' if current_user == user %>">
+            <%= user.username %> - <%= user.submissions.minimum(:time_taken) %> seconds
+          </li>
       <% end %>
     </ol>
   </div>

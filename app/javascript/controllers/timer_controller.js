@@ -6,7 +6,7 @@ export default class extends Controller {
  static values = { countdownTime: Number }
 
  connect() {
-   this.countdownTimeValue = 700;
+   this.countdownTimeValue = 900;
    this.timeTarget.value = 0;
  }
 

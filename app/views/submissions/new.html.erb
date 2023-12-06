@@ -26,7 +26,7 @@
         <h5 class="card-title"><%= @challenge.name %></h5>
         <p class="card-text text-dark">Description: <%= @challenge.description %></p>
         <p class="card-text text-dark">Points: <%= @challenge.expected_score %></p>
-        <p class="card-text text-dark">Max Time: <%= @challenge.expected_time / 60%> seconds</p>
+        <p class="card-text text-dark">Max Time: <%= @challenge.expected_time / 60%> minutes</p>
         <span class="badge text-bg-info"><%= @challenge.category %></span>
         <span class="badge text-bg-info"><%= @challenge.language.name %></span>
         <span class="badge text-bg-info"><%= @challenge.difficulty %></span>
@@ -46,7 +46,7 @@
         <% language_name = @language.name.html_safe %>
   </div>
     <div class="fd">
-    <div id="challenge-data" data-language-name="<%= @language.name %>" data-challenge-content="<%= @challenge.content %>"></div>
+    <div id="challenge-data" data-language-name="<%= @language.name %>" data-language-extension="<%= @language.extension %>" data-language-comment="<%= @language.comment %>" data-challenge-content="<%= @challenge.content %>"></div>
       <div class="container-ide">
         <iframe id="bad-boy-editor"
         frameBorder="0"
