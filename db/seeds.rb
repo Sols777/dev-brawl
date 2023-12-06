@@ -47,28 +47,31 @@ swift = Language.create!(name: "swift",extension:".swift" ,comment:"//" , image:
 # ruby
 exercise1 = Challenge.create!(
   name: "Francisco's Ping Pong Obsession",
-  expected_result: "Francisco demand print output",
+  expected_result: "Francisco Demands: Let's Play One More Time!",
   expected_score: 10,
   expected_time: 1500,
   category: "Coding",
   description: "Model Francisco's ping pong demands when he loses",
   difficulty: "Beginner",
-  content: "// Write a program that models the obsessive ping pong behavior of
-  // a competitive player named Francisco. Define a variable that tracks whether
-  // he loses a game or not. Then write a function to print Francisco's demand
-  // to play again any time the variable indicates he lost. Check if he lost
-  // and call your function within an if statement to conditionally print
-  // the outcome.
+  content: "# Write a program that models the obsessive ping pong behavior of
+  # a competitive player named Francisco. Define a variable that tracks whether
+  # he loses a game or not. Then write a function to print Francisco's demand
+  # to play again any time the variable indicates he lost. Check if he lost
+  # and call your function within an if statement to conditionally print
+  # the outcome.
 
-    francisco_loses = true
+    francisco_loses = ???
+
     # Function for Francisco's demand
+
     def francisco_demand
-      puts '    '
+      puts 'Francisco Demands: ?????????????'
     end
 
     # Check if Francisco loses and call function if true
-    if francisco_loses
-      francisco_demand
+
+    if francisco_???
+      francisco_???
     end",
   language_id: ruby.id
 )
@@ -82,19 +85,23 @@ exercise2 = Challenge.create!(
   category: "Coding",
   description: "Model João's periodic smoke breaks based on time worked",
   difficulty: "Beginner",
-  content: "//Model a person named João who takes 7 regular 5-minute smoke
-  // breaks every hour while he is working. Define a counter variable that
-  // tracks the number of minutes he has worked. Write a function that prints
-  // João's message announcing he is taking a smoke break. Check the minutes
-  // worked counter using modular division and call your function within an
-  // if statement to print a smoke break message each hour.
+  content: "//Model a person named João who takes 7 regular
+  // 5-minute smoke breaks every hour while he is working.
+  // Define a counter variable that tracks the number of
+  // minutes he has worked. Write a function that prints
+  // João's message announcing he is taking a smoke break.
+  // Check the minutes worked counter using modular division
+  // and call your function within an if statement to print
+  // a smoke break message each hour.
 
    // Counter for minutes worked
+
 let minutesWorked = 60;
 
 // Function for João's smoke break
+
 function smokeBreak() {
-  console.log('');
+  console.log('????');
 }
 
 // Check minutes counter and call function
@@ -126,7 +133,8 @@ exercise4 = Challenge.create!(
   category: "Coding",
   description: "Print funny messages as Mariana's daughter interrupts Zoom calls",
   difficulty: "Beginner",
-  content: "Use variables to represent daughter's disruptions. Print messages about her hilariously derailing Mariana's video meetings.",
+  content: "Use variables to represent daughter's disruptions.
+  Print messages about her hilariously derailing Mariana's video meetings.",
   language_id: ruby.id
 )
 
@@ -138,67 +146,85 @@ exercise5 = Challenge.create!(
   category: "Coding",
   description: "Generate Vasco's playlist of favorite gothic songs",
   difficulty: "Beginner",
-  content: "Define a list of Vasco's favorite gloomy gothic songs and bands. Print the list.",
+  content: "Define a list of Vasco's (AKA the Prince of Darkness') favorite
+ gloomy gothic songs and bands. Print the list.",
   language_id: python.id
 )
 
 exercise6 = Challenge.create!(
   name: "Carlos' Luxurious Locks",
-  expected_result: "Printed hair care tips",
+  expected_result: "Because I'm worth it",
   expected_score: 10,
   expected_time: 1500,
   category: "Coding",
   description: "Print hair care tips referencing Carlos' favorite Head & Shoulders shampoo",
   difficulty: "Beginner",
-  content: "Print statements recommending Head & Shoulders products for healthy hair based on Carlos' endorsement.",
+  content: "Print statements recommending Head & Shoulders
+  products for healthy hair based on Carlos' endorsement.
+
+  prints???? ",
   language_id: python.id
 )
 
 exercise7 = Challenge.create!(
   name: "Joanna vs. Seagulls",
-  expected_result: "Battle function output",
+  expected_result: "Fuck You Seagull",
   expected_score: 10,
   expected_time: 1500,
   category: "Coding",
   description: "Model a battle between Joanna and a flock of seagulls with a function",
   difficulty: "Beginner",
-  content: "Define a battle function that accepts Joanna and seagull strengths. Calculate winner based on random factor and print victory message.",
+  content: "Define a battle function that accepts Joanna and
+  seagull strengths. Calculate winner based on random factor
+   and print victory message.
+
+   prints????",
   language_id: python.id
 )
 
 exercise8 = Challenge.create!(
   name: "Artur's Identity Crisis",
-  expected_result: "Printed outfit selection",
+  expected_result: "Make Your Mind Up",
   expected_score: 10,
   expected_time: 1500,
   category: "Coding",
   description: "Use conditionals to print Artur's randomly selected accessories and outfit",
   difficulty: "Beginner",
-  content: "Define variables for earrings, dungarees, and turtlenecks. Randomly assign true/false for each accessory. Print outfit based on conditionals.",
+  content: "Define variables for earrings, dungarees, and turtlenecks.
+  Randomly assign true/false for each accessory.
+  Print outfit based on conditionals.
+
+  prints???? ",
   language_id: python.id
 )
 
 exercise9 = Challenge.create!(
   name: "Thiago's Excessive Winking",
-  expected_result: "Paragraphs with winks",
+  expected_result: "😉😉😉",
   expected_score: 10,
   expected_time: 1500,
   category: "Coding",
   description: "Print paragraphs where Thiago winks multiple times",
   difficulty: "Beginner",
-  content: "Define function to print Thiago winking. Print paragraphs with sentences calling function to insert random winks.",
+  content: "Define function to print Thiago winking.
+  Print paragraphs with sentences calling function to insert random winks.
+
+  prints????",
   language_id: python.id
 )
 
 exercise10 = Challenge.create!(
   name: "Catarina's Sporty Smoking",
-  expected_result: "Printed activity statements",
+  expected_result: "Ballers gonna smoke",
   expected_score: 10,
   expected_time: 1500,
   category: "Coding",
   description: "Print statements about Catarina's competing basketball and smoking interests",
   difficulty: "Beginner",
-  content: "Print conflicting statements about playing basketball and cigarette breaks to represent Catarina's competing interests.",
+  content: "Print conflicting statements about playing basketball and
+   cigarette breaks to represent Catarina's competing interests.
+
+   prints???",
   language_id: python.id
 )
 exercise11 = Challenge.create!(name: "ruby exercise", expected_result: "1", expected_score: 3, expected_time: 900,
