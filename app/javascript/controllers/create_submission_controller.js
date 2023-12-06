@@ -6,6 +6,7 @@ export default class extends Controller {
     expectedOutput: String
   }
 
+  
 connect()
 {
   window.onmessage = (event) => {
@@ -36,5 +37,23 @@ connect()
       resultTarget.value = false;
     }
   }
- }
-}
+  
+connect() {
+ var iFrame = document.getElementById('bad-boy-editor');
+ var challengeData = document.getElementById('challenge-data');
+ var languageName = challengeData.dataset.languageName;
+ var challengeContent = challengeData.dataset.challengeContent;
+
+
+ // Wait for the iframe to load
+ iFrame.onload = function() {
+   iFrame.contentWindow.postMessage({
+     eventType: 'populateCode',
+     language: `${languageName.toLowerCase()}`,
+     files: [
+         {
+             "name": `${languageName.toLowerCase()}DevBrawl1.js`,
+             "content": `${challengeContent}`
+         }
+     ]
+   }, "*");
