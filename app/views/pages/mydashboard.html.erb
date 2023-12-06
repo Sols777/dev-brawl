@@ -1,9 +1,16 @@
- <h1 class="text-center"> My Dashboard</h1>
+ <h1 class="text-center">Home</h1>
   <div class=" m-5">
     <h2>Leaderboard</h2>
+    <h3>Ranking:</h3>
    <ol>
-      <% @users.each do |user| %>
+      <% @users_score.each do |user| %>
         <li><%= user.username %> - <%= user.score %> points</li>
+      <% end %>
+    </ol>
+    <h3>Best times:</h3>
+    <ol>
+      <% @users_time.each do |user| %>
+        <li><%= user.username %> - <%= user.submissions.minimum(:time_taken) %> seconds</li>
       <% end %>
     </ol>
   </div>

@@ -9,7 +9,8 @@ class PagesController < ApplicationController
 
   def mydashboard
     @languages = Language.all
-    @users = User.order(score: :desc)
+    @users_score = User.order(score: :desc)
+    @users_time = User.includes(:submissions).order("submissions.time_taken ASC").distinct
   end
 
   def profile

@@ -21,6 +21,6 @@ class SubmissionsController < ApplicationController
   private
 
   def submission_params
-    params.require(:submission).permit(:succeed)
+    params.require(:submission).permit(:succeed, :time_taken)
   end
 end

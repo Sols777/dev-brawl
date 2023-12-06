@@ -34,9 +34,9 @@
     </div>
       <div class="card" style="width: 30rem;">
       <div>
-        <button class="btn btn-primary" data-action="click->timer#startTimer" data-target="timer.startButton">Start trial</button>
+        <button class="btn btn-primary" data-action="click->timer#startTimer" data-timer-target="startButton">Start trial</button>
         <div data-timer-target="timer">3...2...1..GO</div>
-        <div  class="alert alert-success d-flex align-items-center" role="alert" data-target="alert">
+        <div  class="alert alert-success d-flex align-items-center" role="alert" data-timer-target="alert">
           <div class="spinner-border" role="status">
             <span class="visually-hidden">Loading...</span>
           </div>
@@ -65,7 +65,7 @@
     </div>
       <%= form_with(model: [@challenge, @submission], url: language_challenge_submissions_path(@challenge.language, @challenge), method: :post) do |form| %>
         <%= form.hidden_field :succeed, "data-create-submission-target"=> "result" %>
-        <%# <%= form.hidden_field :time_taken, "data-timer-target"=> "time" %>
+        <%= form.hidden_field :time_taken, "data-timer-target"=> "time" %>
         <%= form.submit 'Create Submission' %>
       <% end %>
 </div>
