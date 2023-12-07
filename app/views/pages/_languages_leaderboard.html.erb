@@ -1,0 +1,21 @@
+<h3>Best times in <%= language.name %>:</h3>
+<ol id="leaderboards">
+  <% language_data.each_with_index do |entry, index| %>
+ <li class="leaderboard-item  <%= 'first-place' if index == 0 %> <%= 'second-place' if index == 1 %> <%= 'third-place' if index == 2 %>">
+    <span class="ranking"><%= "#{index + 1}º" %></span>
+    <div class="user-card">
+      <div class="hexagon"></div>
+      <div  class="user-info">
+        <% if entry.best_username.present? %>
+          <span  class="username <%= 'text-danger' if current_user.username == entry.best_username  %>"><%= entry.best_username %></span>
+          <span class="score"><%= "#{entry.best_time} seconds" %></span>
+        <% else %>
+          <span class="username">No User</span>
+          <span class="score">No Score</span>
+          <span class="debug-info">No User Info: <%= entry.inspect %></span>
+        <% end %>
+      </div>
+    </div>
+  </li>
+<% end %>
+</ol>
