@@ -1,11 +1,3 @@
-$fireColor: rgb(255, 80, 0);
-$fireColorT: rgba(255, 80, 0, 0);
-$dur: 1s;
-$blur: 0.02em;
-$fireRad: 3em;
-$parts: 50;
-$partSize: 2em;
-
 $goldColor: gold;
 $silverColor: silver;
 $bronzeColor: #cd7f32;
@@ -37,7 +29,7 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-image: url('keyboard.png');
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0,0,0,.7)), url('keyboard.png');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -79,43 +71,6 @@ body {
 
     &.first-place {
       border: 2px solid $goldColor;
-
-      .flame-container {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        filter: blur($blur);
-        -webkit-filter: blur($blur);
-        overflow: visible;
-        z-index: -1;
-      }
-
-      .flame {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        display: flex;
-        flex-wrap: wrap;
-        align-content: flex-end;
-      }
-
-      .particle {
-        animation: rise $dur ease-in infinite;
-        background-image: radial-gradient(circle, $fireColor 20%, $fireColorT 70%);
-        border-radius: 50%;
-        mix-blend-mode: screen;
-        opacity: 0;
-        position: absolute;
-        bottom: 0;
-        width: $partSize;
-        height: $partSize;
-        animation-delay: $dur * (random(100) / 100);
-        left: calc((100% - #{$partSize}) * random(100) / 100);
-      }
     }
 
     &.second-place {
@@ -220,6 +175,7 @@ body {
       color: #39BC40;
     }
   }
+ 
 
   .language-modes {
     padding: 1rem;
