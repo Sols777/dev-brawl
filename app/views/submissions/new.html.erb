@@ -43,10 +43,9 @@
         <div class="card-time-container">
           <button data-action="click->timer#stopTimer" data-target="stopButton" class="btn btn-gradient-2" data-bs-toggle="modal" data-bs-target="#exampleModal">End challenge</button>
         </div>
-      </div>
+        <button type="button" class="btn btn-lg btn-danger" data-bs-toggle="popover" data-bs-title="Popover title" data-bs-content="Click start to beggin the trial">instructions</button>
       </div>
           <%= render "modal"%>
-    </div>
         <% language_name = @language.name.html_safe %>
     <div class="blurred" data-timer-target="blur">
     <div id="challenge-data" data-language-name="<%= @language.name %>" data-language-extension="<%= @language.extension %>" data-language-comment="<%= @language.comment %>" data-challenge-content="<%= @challenge.content %>"></div>
@@ -57,7 +56,6 @@
         src="https://onecompiler.com/embed/<%= @language.name.downcase %>?codeChangeEvent=true&listenToEvents=true&theme=dark&hideNew=true&hideNew=true&disableCopyPaste=true"
         width="150%"
         ></iframe>
-
       </div>
       <div  class="alert alert-success d-flex align-items-center" role="alert" data-timer-target="alert">
           <div class="spinner-border" role="status">
