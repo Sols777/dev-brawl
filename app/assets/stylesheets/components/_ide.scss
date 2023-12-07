@@ -1,90 +1,9 @@
-// Variables for consistent styling
-$background-color: #2c3e50;
-$text-color: #ecf0f1;
-$primary-color: #3498db;
-$success-color: #2ecc71;
-$error-color: #e74c3c;
-$card-background: #34495e;
-$card-shadow: 0 4px 8px 0 rgba(0,0,0,0.5);
-$border-radius: 8px;
-$font-stack: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 
-// Base page styles
-body {
-  background-color: $background-color;
-  color: $text-color;
-  font-family: $font-stack;
-  margin: 0;
-  padding: 20px;
+#editor {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
 }
 
-// Flex container for the IDE and the right-side content
-.content {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-
-  // IDE container styles
-  .container-ide {
-    flex: 1; // The IDE will take 1 part of the space
-    iframe {
-      width: 100%; // Ensures the iframe takes the full width of its container
-      height: 600px; // Adjust height as necessary
-      border: none;
-    }
-  }
-
-  // Right side container
-  .right-container {
-    flex: 1; // The right container will also take 1 part of the space
-    display: flex;
-    flex-direction: column;
-
-    .card {
-      flex: 1; // Allows the card to grow and fill the container
-      background-color: $card-background;
-      box-shadow: $card-shadow;
-      border-radius: $border-radius;
-      margin-bottom: 20px;
-      padding: 20px;
-      color: $text-color;
-      width: auto; // Ensures the card width is auto-adjusted
-      h5.card-title, p.card-text, .badge {
-        color: $text-color;
-      }
-    }
-
-    button {
-      background-color: $primary-color;
-      color: $text-color;
-      border: none;
-      padding: 10px 20px;
-      border-radius: $border-radius;
-      font-weight: bold;
-      text-transform: uppercase;
-      box-shadow: $card-shadow;
-      transition: background-color 0.3s ease;
-      &:hover {
-        background-color: darken($primary-color, 10%);
-        cursor: pointer;
-      }
-    }
-  }
-}
-
-// Clear float styles if needed
-.clearfix::after {
-  content: "";
-  display: table;
-  clear: both;
-}
-
-// Responsive adjustments for smaller screens
-@media (max-width: 992px) {
-  .content {
-    flex-direction: column;
-    .container-ide, .right-container {
-      width: 100%;
-    }
-  }
-}
