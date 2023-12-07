@@ -1,11 +1,22 @@
+<%# _progress_bar.html.erb %>
+
+<% user = current_user %>
+<% language = local_assigns[:language] %>
+
+<% percentage = user.completion_percentage_for(language.name) %>
+
 <div class="progress" style="height: 30px;">
-  <div class="progress-bar progress-bar-striped progress-bar-animated" id="random-progress" style="background-color: #39BC40; color: white;">
-    <p style="margin: 0; text-align: center;"><%= language.name %></p>
+
+  <div class="progress-bar progress-bar-striped progress-bar-animated"
+       id="progress-bar"
+       style="width: <%= percentage %>%;"
+       role="progressbar"
+       aria-valuenow="<%= percentage %>"
+       aria-valuemin="0"
+       aria-valuemax="100">
+
+    <p style="margin: 0; text-align: center;">
+      <%= language.name %> - <%= number_to_percentage(percentage, precision: 0) %>
+    </p>
   </div>
 </div>
-
-<script>
- randomWidth = Math.floor(Math.random() * 75) + 1;
- progressBar = document.getElementById("random-progress");
- progressBar.style.width = `${randomWidth}%`;
-</script>
