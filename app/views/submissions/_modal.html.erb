@@ -1,17 +1,17 @@
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade " id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
-    <div class="modal-content">
+    <div class="modal-content bg-dark">
       <div class="modal-header">
         <h1 class="modal-title fs-5" id="exampleModalLabel">Challenge submitted</h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
         <div class="hidden" data-create-submission-target="wincon">
-          <p class="text-dark">Good job <%= current_user.username %> you gained <%= @challenge.expected_score %> points ! You took <span class="text-dark" data-timer-target="modal"></span> seconds to complet this challenge. </p>
-          <p class="text-dark">The user<%= @challenge.submissions.first.user.username  %> has the best time. Completed this challenge in <%= @challenge.submissions.first.time_taken %> seconds.</p>
+          <p class="text-light">Good job <%= current_user.username %> you gained <%= @challenge.expected_score %> points ! You took <span class="text-dark" data-timer-target="modal"></span> seconds to complet this challenge. </p>
+          <p class="text-light">The user<%= @challenge.submissions.first.user.username  %> has the best time. Completed this challenge in <%= @challenge.submissions.first.time_taken %> seconds.</p>
         </div>
         <div class="hidden" data-create-submission-target="losecon">
-          <p class="text-dark">Oh nooo<%= current_user.username %> you lost this challenge your answer was incorret!</p>
+          <p class="text-light">Oh nooo<%= current_user.username %> you lost this challenge your answer was incorret!</p>
         </div>
       </div>
       <div class="modal-footer">
