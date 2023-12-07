@@ -1,65 +1,49 @@
 <script data-controller="create-submission">
- window.onmessage = (event) => {
-   if(!event.data.result) return;
-   const output = event.data.result.output;
-   console.log(output);
-   document.querySelector('[data-create-submission-target="output"]').innerHTML = output;
+  window.onmessage = (event) => {
+    if (!event.data.result) return;
+    const output = event.data.result.output;
+    console.log(output);
+    document.querySelector('[data-create-submission-target="output"]').innerHTML = output;
 
-   // Dispatch a custom event
-   const deed = new CustomEvent('loadExpectedResults');
-   window.dispatchEvent(deed);
+    const deed = new CustomEvent('loadExpectedResults');
+    window.dispatchEvent(deed);
 
-   // Call Rails controller method
-   Rails.ajax({
-       url: "/submissions",
-       type: "POST",
-       data: {output: event.data.result.output}
-   });
- }
+    Rails.ajax({
+      url: "/submissions",
+      type: "POST",
+      data: { output: event.data.result.output }
+    });
+  }
 </script>
 
-<div class="d" data-controller="create-submission timer">
-  <h4>New challenge</h4>
-  <div class="d-flex justify-content-center">
-    <div class="card" style="width: 18rem;">
+<div class="content" data-controller="create-submission timer">
+  <div class="container-ide">
+    <iframe id="bad-boy-editor"
+            frameBorder="0"
+            src="https://onecompiler.com/embed/<%= @language.name.downcase %>?codeChangeEvent=true&listenToEvents=true&theme=dark&hideNew=true&hideNew=true&disableCopyPaste=true"
+            height="600px" // Set the height to match your SCSS
+            ></iframe>
+  </div>
+
+  <div class="right-container">
+    <div class="card">
       <div class="card-body">
         <h5 class="card-title"><%= @challenge.name %></h5>
-        <p class="card-text text-dark">Description: <%= @challenge.description %></p>
-        <p class="card-text text-dark">Points: <%= @challenge.expected_score %></p>
-        <p class="card-text text-dark">Max Time: <%= @challenge.expected_time / 60%> minutes</p>
-        <span class="badge text-bg-info"><%= @challenge.category %></span>
-        <span class="badge text-bg-info"><%= @challenge.language.name %></span>
-        <span class="badge text-bg-info"><%= @challenge.difficulty %></span>
+        <p class="card-text">Description: <%= @challenge.description %></p>
+        <p class="card-text">Points: <%= @challenge.expected_score %></p>
+        <p class="card-text">Max Time: <%= @challenge.expected_time / 60 %> minutes</p>
+        <span class="badge"><%= @challenge.category %></span>
+        <span class="badge"><%= @challenge.language.name %></span>
+        <span class="badge"><%= @challenge.difficulty %></span>
       </div>
     </div>
-      <div class="card" style="width: 10rem;">
-      <div>
-        <button class="btn btn-primary" data-action="click->timer#startTimer" data-timer-target="startButton">Start trial</button>
-        <div data-timer-target="timer">3...2...1..GO</div>
-        <div  class="alert alert-success d-flex align-items-center" role="alert" data-timer-target="alert">
-          <div class="spinner-border" role="status">
-            <span class="visually-hidden">Loading...</span>
-          </div>
-        </div>
-      </div>
-        <div class="text-light hidden" data-create-submission-target="output"></div>
-        <div data-create-submission-target="expectedOutput" class="hidden"><%= @challenge.expected_result %></div>
-          <i data-create-submission-target="tick" class="fa-solid fa-check hidden" style="color: #00ff04;"> It's correct!</i>
-          <i data-create-submission-target="cross" class="fa-solid fa-xmark hidden" style="color: #fb0404;"> It's wrong , try again!</i>
-      </div>
-        <button data-action="click->timer#stopTimer" data-target="stopButton" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">End challenge</button>
-        <%= render "modal"%>
-    </div>
-        <% language_name = @language.name.html_safe %>
-    <div class="fd">
-    <div id="challenge-data" data-language-name="<%= @language.name %>" data-language-extension="<%= @language.extension %>" data-language-comment="<%= @language.comment %>" data-challenge-content="<%= @challenge.content %>"></div>
-      <div class="container-ide">
-        <iframe id="bad-boy-editor"
-        frameBorder="0"
-        height="500px"
-        src="https://onecompiler.com/embed/<%= @language.name.downcase %>?codeChangeEvent=true&listenToEvents=true&theme=dark&hideNew=true&hideNew=true&disableCopyPaste=true"
-        width="150%"
-        ></iframe>
-      </div>
- </div>
+
+    <!-- Additional right-container content -->
+    <!-- ... -->
+
+  </div>
 </div>
+
+<%# Additional content outside the flex container %>
+<% language_name = @language.name.html_safe %>
+<div id="challenge-data" data-language-name="<%= @language.name %>" data-language-extension="<%= @language.extension %>" data-language-comment="<%= @language.comment %>" data-challenge-content="<%= @challenge.content %>"></div>
