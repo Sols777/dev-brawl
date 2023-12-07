@@ -1,7 +1,16 @@
-.card {
+.card-game {
     background-image: linear-gradient(to right, #A813EB, #7103FD) !important;
     color: white;
     border: none;
+    .card-game-text{
+      font-size: smaller;
+      color: white;
+    }
+
+    #timer-text{
+      font-size: smaller;
+      color: white;
+    }
 }
 
 #card-game{
