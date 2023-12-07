@@ -13,7 +13,6 @@ $bronzeColor: #cd7f32;
 body {
   background-color: rgb(48, 8, 8);
   margin: 0;
-
 }
 
 .dashboard-container {
@@ -51,11 +50,20 @@ body {
     margin-right: 1rem;
   }
 
+  #leaderboards {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 80%;
+  }
+
   .leaderboard-list {
     list-style: none;
     padding: 0;
     margin: 0;
+    width: 40%;
   }
+
 
   .leaderboard-item {
     background: linear-gradient(145deg, #252525, #1c1c1c);
