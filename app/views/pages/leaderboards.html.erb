@@ -1,0 +1,8 @@
+<div class="dashboard-container">
+  <h2 class="text-center">Leaderboards</h2>
+  <% @languages.each do |language| %>
+    <div class="leaderboard-container">
+      <%= render partial: "languages_leaderboard", locals: { language: language, language_data: @languages_data[language.id] } %>
+    </div>
+  <% end %>
+</div>
