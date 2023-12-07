@@ -14,6 +14,10 @@
   margin: 10px 50px;
 }
 
+.blurred {
+  filter: blur(5px);
+}
+
 .page-container {
   display: grid;
   min-height: 100vh;
