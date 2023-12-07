@@ -17,3 +17,34 @@
     scale: 1.2;
     color: red;
   }
+
+  .btn-gradient-1 {
+    color: white;
+    padding: 8px 24px;
+    border-radius: 4px;
+    font-weight: bold;
+    background: rgb(0, 126, 236);
+    transition: background 0.3s ease;
+    border: 1px solid #0F60C4;
+  }
+
+  .btn-gradient-1:hover {
+    background: linear-gradient($gradientColour, black);
+    color: red;
+  }
+
+
+  .btn-gradient-2 {
+    color: white;
+    padding: 8px 24px;
+    border-radius: 4px;
+    font-weight: bold;
+    background: green;
+    transition: background 0.3s ease;
+    border: 1px solid #0F60C4;
+  }
+
+  .btn-gradient-2:hover {
+    background: linear-gradient($gradientColour, black);
+    color: rgb(255, 0, 0);
+  }
