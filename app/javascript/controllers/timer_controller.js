@@ -2,7 +2,7 @@ import { Controller } from "@hotwired/stimulus"
 
 
 export default class extends Controller {
- static targets = ["timer", "startButton","stopButton","alert","modal","time"]
+ static targets = ["timer","startButton","stopButton","alert","modal","time","blur"]
  static values = { countdownTime: Number }
 
  connect() {
@@ -15,7 +15,7 @@ export default class extends Controller {
    this.startTimeValue = Date.now();
    this.startButtonTarget.disabled = true;
    this.timerTarget.textContent = this.countdownTimeValue + ' seconds remaining';
-
+   this.blurTarget.classList.remove('blurred');
    this.countdown = setInterval(() => {
      this.countdownTimeValue--;
      this.timerTarget.textContent = this.countdownTimeValue + ' seconds remaining';
