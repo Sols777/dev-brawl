@@ -6,7 +6,6 @@
 <% percentage = user.completion_percentage_for(language.name) %>
 
 <div class="progress" style="height: 30px;">
-
   <div class="progress-bar progress-bar-striped progress-bar-animated"
        id="progress-bar"
        style="width: <%= percentage %>%;"
@@ -14,8 +13,7 @@
        aria-valuenow="<%= percentage %>"
        aria-valuemin="0"
        aria-valuemax="100">
-
-    <p class="text_shadow" style="margin: 0; text-align: center;">
+      <p class="text_shadow" style="margin: 0; text-align: center;">
       <%= language.name %> - <%= number_to_percentage(percentage, precision: 0) %>
     </p>
   </div>
