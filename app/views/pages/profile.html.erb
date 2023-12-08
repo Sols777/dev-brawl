@@ -9,6 +9,9 @@
         <p><strong>My points: </strong><span class="text-danger"><%= @user.score %></span></p>
         <p><strong>My best submission time is </strong><span class="text-danger"><%= @user.submissions.minimum(:time_taken) %> seconds.</span></p>
         <p><strong>Win Percentage: </strong><span class="text-success"><%= @win_percentage.round(2) %> %</span></p>
+        <%= image_tag("rubylord.png", alt: "Ruby Lord", class: "profile-badge") %>
+        <%= image_tag("bestdev.png", alt: "Best Developer", class: "profile-badge") %>
+        <%= image_tag("champion.png", alt: "Champion", class: "profile-badge") %>
       </div>
       <div class="d">
         <% @languages.each do |language| %>
@@ -18,5 +21,10 @@
         <% end %>
       </div>
     </div>
+    <% @languages.each do |language| %>
+      <br>
+      <%= render "progress_bar", language: language %>
+      <br>
+    <% end %>
   </div>
 </div>

@@ -58,7 +58,7 @@
   margin: 0 10px 10px 10px;
 }
 
-.card-profile-container{
+.card-profile-container {
   width: 30%;
   height: 50%;
   display: flex;
@@ -71,6 +71,21 @@
   backdrop-filter: blur(15px);
   margin: 10px 10px 10px 50px;
 
+  .text_shadow {
+    text-shadow: 2px 2px 4px #000000;
+  }
+
+  .badge-container {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+  }
+
+  .profile-badge {
+    width: 60px;
+    height: auto;
+    border-radius: 10px;
+  }
 }
 
 

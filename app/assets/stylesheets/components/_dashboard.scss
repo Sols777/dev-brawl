@@ -56,7 +56,6 @@ body {
     width: 40%;
   }
 
-
   .leaderboard-item {
     background: linear-gradient(145deg, #252525, #1c1c1c);
     border-radius: 10px;
@@ -154,32 +153,51 @@ body {
       background: linear-gradient(to right, #39BC40, #03D);
       border-radius: 10px 10px 0 0;
     }
-  }
 
-  .language-card-header {
-    padding: 1rem;
-    background: linear-gradient(145deg, #2b2b2b, #222);
-  }
+    .language-card-header {
+      padding: 1rem;
+      background: linear-gradient(145deg, #2b2b2b, #222);
+      position: relative; // For absolute positioning of the dropdown
 
-  .language-card-toggle {
-    width: 100%;
-    text-align: left;
-    border: none;
-    background: none;
-    color: white;
-    font-size: 1.5rem;
-    padding: 0;
-    transition: color 0.3s;
+      .language-card-toggle {
+        width: 100%;
+        text-align: left;
+        border: none;
+        background: none;
+        color: white;
+        font-size: 1.5rem;
+        padding: 0;
+        transition: color 0.3s;
 
-    &:hover {
-      color: #39BC40;
+        &:hover {
+          color: #39BC40;
+        }
+      }
+
+      .dropdown {
+        position: absolute;
+        right: 1rem;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 2;
+
+        .dropdown-toggle {
+          background: transparent;
+          color: white;
+          border: none;
+          &:focus {
+            box-shadow: none;
+          }
+        }
+      }
     }
   }
 
 
-  .language-modes {
-    padding: 1rem;
-    background: #1b1b1b;
+    .language-modes {
+      padding: 1rem;
+      background: #1b1b1b;
+    }
   }
 
   .mode-cards {
