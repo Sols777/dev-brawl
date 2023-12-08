@@ -7,11 +7,11 @@
       </div>
       <div class="modal-body">
         <div class="hidden" data-create-submission-target="wincon">
-          <p class="text-light">Good job <span class="text-danger"><%= current_user.username %></span> you gained <%= @challenge.expected_score %> points ! You took <span class="text-danger" data-timer-target="modal"></span> seconds to complet this challenge. </p>
+          <p class="text-light">Good job <span class="text-danger"><%= current_user.username %></span> you gained <%= @challenge.expected_score %> points ! You took <span class="text-danger" data-timer-target="modal"></span> seconds to complete this challenge. </p>
           <p class="text-light">The user <span class="text-warning"><%= @challenge.submissions.first.user.username  %></span> holds the current world record , they completed this challenge in <%= @challenge.submissions.first.time_taken %> seconds.</p>
         </div>
         <div class="hidden" data-create-submission-target="losecon">
-          <p class="text-light">Oh nooo<%= current_user.username %> you lost this challenge your answer was incorret!</p>
+          <p class="text-light">Oh nooo<%= current_user.username %> You lost this challenge! Your answer was incorrect!</p>
         </div>
       </div>
       <div class="modal-footer">
