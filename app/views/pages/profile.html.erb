@@ -2,18 +2,23 @@
   <h2 class="text-center">My profile</h2>
   <div class="container">
     <div class="row">
-      <div class="col-md-8 card-profile-container">
-        <h3 class="text_shadow">Username: <%= @user.username %></h3>
-        <p class="text_shadow">My name: <%= @user.first_name %> <%= @user.last_name %></p>
-        <p class="text_shadow">My level: <%= @user.achievements %></p>
-        <p class="text_shadow">My points: <%= @user.score %></p>
-        <p class="text_shadow">My best submission time is <%= @user.submissions.minimum(:time_taken) %> seconds.</p>
-        <p class="text_shadow">Win Percentage: <%= @win_percentage.round(2) %> %</p>
-      </div>
-      <div class="col-md-4 badge-container">
+      <div class="col card-profile-container">
+        <h3 class=""><strong>Username:</strong> <span class="text-success"><%= @user.username %></span></h3>
+        <p><strong>My name: </strong><span class="text-success"><%= @user.first_name %> <%= @user.last_name %></span></p>
+        <p><strong>My level: </strong><span class="text-success"><%= @user.achievements %></span></p>
+        <p><strong>My points: </strong><span class="text-danger"><%= @user.score %></span></p>
+        <p><strong>My best submission time is </strong><span class="text-danger"><%= @user.submissions.minimum(:time_taken) %> seconds.</span></p>
+        <p><strong>Win Percentage: </strong><span class="text-success"><%= @win_percentage.round(2) %> %</span></p>
         <%= image_tag("rubylord.png", alt: "Ruby Lord", class: "profile-badge") %>
         <%= image_tag("bestdev.png", alt: "Best Developer", class: "profile-badge") %>
         <%= image_tag("champion.png", alt: "Champion", class: "profile-badge") %>
+      </div>
+      <div class="d">
+        <% @languages.each do |language| %>
+          <br>
+          <%= render "progress_bar", language: language%>
+          <br>
+        <% end %>
       </div>
     </div>
     <% @languages.each do |language| %>

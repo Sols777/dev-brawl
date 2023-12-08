@@ -14,16 +14,16 @@ User.destroy_all
 # Create users
 user1 = User.create!(email: "user1@text.com", password: "123123",
                     username: "Javascriptlord",
-                    first_name: "Digo", last_name: "Nunsh" , score:149)
+                    first_name: "Digo", last_name: "Joobsh" , score:149)
 user2= User.create!(email: "user2@text.com", password: "123123",
                     username: "RubyBubii",
-                    first_name: "Luessh", last_name: "Tossh" , score:161)
+                    first_name: "Wuessh", last_name: "Tossh" , score:161)
 user3 = User.create!(email: "user3@text.com", password: "123123",
                     username: "ReactMaster",
                     first_name: "Joao", last_name: "Martins" , score:231)
 user4 = User.create!(email: "user4@text.com", password: "123123",
-                      username: "FullstackQueen",
-                      first_name: "Isabelle", last_name: "Ferreir" , score:222)
+                      username: "FullstackQueen",achievements: "Senior",
+                      first_name: "Pete", last_name: "Lennon" , score:228)
 user5 = User.create!(email: "user5@text.com", password: "123123",
                     username: "PyhtonLad99",
                     first_name: "Peter", last_name: "Taylor Swift", score: 153)

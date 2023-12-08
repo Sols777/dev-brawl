@@ -1,5 +1,5 @@
-<div class="leaderboard-container">
-  <h2 class="text_shadow1">Leaderboard</h2>
+<div class="leaderboard-container .mt-1">
+  <h2 class="text_shadow1"><strong>Top 5 worldwide</strong></h2>
   <ol class="leaderboard-list ">
     <% @users_score.take(5).each_with_index do |user, index| %>
       <li class=" <%= 'text-danger' if current_user == user %> leaderboard-item <%= 'first-place' if index == 0 %> <%= 'second-place' if index == 1 %> <%= 'third-place' if index == 2 %>">
