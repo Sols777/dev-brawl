@@ -392,7 +392,7 @@ exercise19 = Challenge.create!(
 )
 exercise20 = Challenge.create!(
   name: "João's Cigarette Breaks",
-  expected_result: "Smoke break print output",
+  expected_result: "Time for a smoke",
   expected_score: 10,
   expected_time: 1500,
   category: "Coding",
@@ -426,7 +426,7 @@ if(minutesWorked % XX === 0) {
 )
 exercise21 = Challenge.create!(
   name: "João's Cigarette Breaks",
-  expected_result: "Smoke break print output",
+  expected_result: "Time for a smoke",
   expected_score: 10,
   expected_time: 1500,
   category: "Coding",
@@ -460,7 +460,7 @@ if(minutesWorked % XX === 0) {
 )
 exercise22 = Challenge.create!(
   name: "João's Cigarette Breaks",
-  expected_result: "Smoke break print output",
+  expected_result: "Time for a smoke",
   expected_score: 10,
   expected_time: 1500,
   category: "Coding",
