@@ -7,7 +7,7 @@
       </div>
       <div class="modal-body">
         <div class="hidden" data-create-submission-target="wincon">
-          <p class="text-light">Good job <%= current_user.username %> you gained <%= @challenge.expected_score %> points ! You took <span class="text-dark" data-timer-target="modal"></span> seconds to complet this challenge. </p>
+          <p class="text-light">Good job <%= current_user.username %> you gained <%= @challenge.expected_score %> points ! You took <span class="text-danger" data-timer-target="modal"></span> seconds to complet this challenge. </p>
           <p class="text-light">The user<%= @challenge.submissions.first.user.username  %> has the best time. Completed this challenge in <%= @challenge.submissions.first.time_taken %> seconds.</p>
         </div>
         <div class="hidden" data-create-submission-target="losecon">
