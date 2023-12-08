@@ -48,3 +48,14 @@
     background: linear-gradient($gradientColour, black);
     color: rgb(255, 0, 0);
   }
+
+
+.btn-lg{
+  border: 1px solid white;
+  transition: 0.3s ease;
+}
+
+.btn:hover{
+    transform: scale(1.2);
+    border: 2px solid white;
+}
