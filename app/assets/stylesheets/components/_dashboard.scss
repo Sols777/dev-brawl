@@ -25,6 +25,7 @@ body {
 
   .leaderboard-container {
     display: flex;
+    height: 500px;
     width: 100%;
     flex-direction: column;
     justify-content: center;
@@ -175,7 +176,7 @@ body {
       color: #39BC40;
     }
   }
- 
+
 
   .language-modes {
     padding: 1rem;

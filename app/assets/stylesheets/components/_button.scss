@@ -4,18 +4,18 @@
     color: #fff;
   }
   .btn-ghost {
-    color: $primaryColor;
+    color: white;
     border: 1px solid white;
     padding: 8px 24px;
     border-radius: 50px;
     font-weight: lighter;
-    transition: opacity 0.3s ease;
+    background: $gradientColour;
+    transition: 0.3s ease;
     width: 40%;
   }
 
   .btn-ghost:hover {
-    scale: 1.2;
-    color: red;
+    scale: 0.9;
   }
 
   .btn-gradient-1 {
@@ -48,3 +48,14 @@
     background: linear-gradient($gradientColour, black);
     color: rgb(255, 0, 0);
   }
+
+
+.btn-lg{
+  border: 1px solid white;
+  transition: 0.3s ease;
+}
+
+.btn:hover{
+    transform: scale(1.2);
+    border: 2px solid white;
+}
