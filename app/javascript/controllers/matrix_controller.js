@@ -11,7 +11,7 @@ export default class extends Controller {
     this.canvas = this.element;
     this.ctx = this.canvas.getContext('2d');
     this.setCanvasDimensions();
-    this.characters = "アイウ 0987654321エオカ  キクケ  コキャキュキョサシスセソシャシュショタチツテトチャチュチョナニヌネノニャニュニョハヒフヘホヒャヒュヒョマミムメモミャミュミョヤユヨラリルレロリャリュリョワン ガ ギグゲ ゴギャギュギョザジズゼ ゾジャジュ ジョダヂ ヅデドバ ビブベ ボビャ ビュ ビョパ ピプペポピャピュピョファフィ フェフォツァティトゥウェウォ";
+    this.characters = "アイウDEVBRAAAAWL 0987654321エオカ  キクケ  コJOHN LENNON AKA PETEキャキュキョサシスセソシャシュショタチツテトチャチュチョナニヌネノニャニュニョハヒフヘホヒャヒュヒョマミムメモミャミュミョヤユヨラリルレロリャリュリョワン ガ ギグゲ ゴギャギュギョザジズゼ ゾジャジュ ジョダヂ ヅデドバ ビブベ ボビャ ビュ ビョパ ピプペポピャピュピョファフィ フェフォツァティトゥウェウォ";
     this.fontSize = 10;
     this.columns = this.canvas.width / this.fontSize;
     this.drops = new Array(Math.floor(this.columns)).fill(0);
@@ -25,7 +25,7 @@ export default class extends Controller {
   startMatrixRain() {
     setInterval(() => {
       this.drawMatrixRain();
-    }, 33);
+    }, 60);
   }
 
   drawMatrixRain() {
@@ -39,7 +39,7 @@ export default class extends Controller {
       const text = this.characters.charAt(Math.floor(Math.random() * this.characters.length));
       this.ctx.fillText(text, i * this.fontSize, this.drops[i] * this.fontSize);
       
-      if (this.drops[i] * this.fontSize > this.canvas.height && Math.random() > 0.975) {
+      if (this.drops[i] * this.fontSize > this.canvas.height && Math.random() > 0.98) {
         this.drops[i] = 0;
       }
       this.drops[i]++;

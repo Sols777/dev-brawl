@@ -5,23 +5,29 @@
       <%= render "main_leaderboard" %>
       <h2>Play now</h2>
       <div class="accordion" id="accordionExample">
-       <% @languages.each_with_index do |language, index| %>
-        <div class="language-card">
-          <div class="language-card-header">
-            <button class="language-card-toggle" type="button" data-bs-toggle="collapse" data-bs-target="#collapse<%= index %>">
-              <%= language.name %>
-            </button>
-          </div>
-          <div id="collapse<%= index %>" class="collapse language-modes">
-            <div class="mode-cards">
-              <%= render "time_trial", language: language %>
-              <%= render "pvp", language: language %>
-              <%= render "training", language: language %>
+        <% @languages.each_with_index do |language, index| %>
+          <div class="language-card">
+            <div class="language-card-header">
+              <button class="language-card-toggle" type="button" data-bs-toggle="collapse" data-bs-target="#collapse<%= index %>">
+                <%= language.name %>
+              </button>
+              <div class="dropdown" style="float: right;">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton<%= index %>" data-bs-toggle="dropdown" aria-expanded="false"></button>
+                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton<%= index %>">
+                </ul>
+              </div>
+            </div>
+            <div id="collapse<%= index %>" class="collapse language-modes">
+              <div class="mode-cards">
+                <%= render "time_trial", language: language %>
+                <%= render "pvp", language: language %>
+                <%= render "training", language: language %>
+              </div>
             </div>
           </div>
-        </div>
-      <% end %>
+        <% end %>
       </div>
     </div>
   </div>
-  </div>
+</div>
+

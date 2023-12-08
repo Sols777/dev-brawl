@@ -2,7 +2,7 @@
   <h2 class="text-center">My profile</h2>
   <div class="container">
     <div class="row">
-      <div class="col card-profile-container">
+      <div class="col-md-8 card-profile-container">
         <h3 class="text_shadow">Username: <%= @user.username %></h3>
         <p class="text_shadow">My name: <%= @user.first_name %> <%= @user.last_name %></p>
         <p class="text_shadow">My level: <%= @user.achievements %></p>
@@ -10,13 +10,16 @@
         <p class="text_shadow">My best submission time is <%= @user.submissions.minimum(:time_taken) %> seconds.</p>
         <p class="text_shadow">Win Percentage: <%= @win_percentage.round(2) %> %</p>
       </div>
-      <div class="">
-        <% @languages.each do |language| %>
-          <br>
-          <%= render "progress_bar", language: language%>
-          <br>
-        <% end %>
+      <div class="col-md-4 badge-container">
+        <%= image_tag("rubylord.png", alt: "Ruby Lord", class: "profile-badge") %>
+        <%= image_tag("bestdev.png", alt: "Best Developer", class: "profile-badge") %>
+        <%= image_tag("champion.png", alt: "Champion", class: "profile-badge") %>
       </div>
     </div>
+    <% @languages.each do |language| %>
+      <br>
+      <%= render "progress_bar", language: language %>
+      <br>
+    <% end %>
   </div>
 </div>
