@@ -1,7 +1,7 @@
 Hi there 👋! I am Luis
 
 ## DevBrawl:
-> This project was my final project @LeWagon Porto bootcamp 2 other devs from the bootcamp.
+> This project was my final project @LeWagon Porto bootcamp together 2 other devs from the bootcamp.
 ## What is it about:
 <p>
   DevBrawl is a platform for developers to compete against each other. This can be done
