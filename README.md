@@ -14,4 +14,4 @@ Hi there 👋! I am Luis
 
 ### 💬 Where to find me:
 - 🫂 Linkedin: https://www.linkedin.com/in/luisptorres/
-- 📃 portfolio: *in construction*
+- 📃 portfolio: https://river-cornflower-8c5.notion.site/Luis-Torres-Web-application-Developer-d708559c15eb4d3397c76c2913b686b6
